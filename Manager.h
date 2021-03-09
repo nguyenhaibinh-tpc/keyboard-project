@@ -20,7 +20,7 @@ public:
 private:
     bool isRunning;
     SDL_Window *window;
-    static SDL_Renderer *renderer;
+    SDL_Renderer *renderer;
 };
 
 #endif //KEYBOARD_PROJECT_MANAGER_H

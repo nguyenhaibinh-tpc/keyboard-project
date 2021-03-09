@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Manager.h"
 
 void game()
 {

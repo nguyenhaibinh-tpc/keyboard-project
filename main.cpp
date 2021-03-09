@@ -1,8 +1,13 @@
 #include <iostream>
 
-void render()
+void game()
 {
     i love chinese
+}
+
+void render()
+{
+
 }
 
 int main() {

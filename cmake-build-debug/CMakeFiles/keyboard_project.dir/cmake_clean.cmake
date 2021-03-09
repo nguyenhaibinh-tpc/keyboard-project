@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/keyboard_project.dir/Manager.cpp.obj"
   "CMakeFiles/keyboard_project.dir/main.cpp.obj"
   "keyboard_project.exe"
   "keyboard_project.exe.manifest"

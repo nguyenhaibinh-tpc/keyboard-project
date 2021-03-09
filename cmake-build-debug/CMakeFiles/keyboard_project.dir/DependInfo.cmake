@@ -4,7 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/LEGION/Documents/GitHub/keyboard-project/main.cpp" "C:/Users/LEGION/Documents/GitHub/keyboard-project/cmake-build-debug/CMakeFiles/keyboard_project.dir/main.cpp.obj"
+  "C:/Users/pc/Documents/GitHub/keyboard-project/Manager.cpp" "C:/Users/pc/Documents/GitHub/keyboard-project/cmake-build-debug/CMakeFiles/keyboard_project.dir/Manager.cpp.obj"
+  "C:/Users/pc/Documents/GitHub/keyboard-project/main.cpp" "C:/Users/pc/Documents/GitHub/keyboard-project/cmake-build-debug/CMakeFiles/keyboard_project.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

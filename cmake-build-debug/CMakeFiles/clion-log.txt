@@ -1,0 +1,4 @@
+"C:\Users\pc\AppData\Local\JetBrains\CLion 2020.3.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" C:\Users\pc\Documents\GitHub\keyboard-project
+-- Configuring done
+-- Generating done
+-- Build files have been written to: C:/Users/pc/Documents/GitHub/keyboard-project/cmake-build-debug

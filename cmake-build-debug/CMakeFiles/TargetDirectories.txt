@@ -1,0 +1,3 @@
+C:/Users/pc/Documents/GitHub/keyboard-project/cmake-build-debug/CMakeFiles/keyboard_project.dir
+C:/Users/pc/Documents/GitHub/keyboard-project/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/pc/Documents/GitHub/keyboard-project/cmake-build-debug/CMakeFiles/rebuild_cache.dir

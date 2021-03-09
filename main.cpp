@@ -2,7 +2,7 @@
 
 void render()
 {
-    
+    i love chinese
 }
 
 int main() {

@@ -2,7 +2,11 @@
 
 void game()
 {
-    i love china dog numba wan
+    if(1){
+
+    } else{
+        
+    }
 }
 
 void render()

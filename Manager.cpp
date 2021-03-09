@@ -23,6 +23,15 @@ void Manager::Init(const char *title, int x_pos, int y_pos, int width, int heigh
 }
 
 void Manager::HandleEvents() {
+    SDL_Event event;
+    SDL_PollEvent(&event);
+    switch (event.type) {
+        case SDL_QUIT:
+            isRunning = false;
+            break;
+        default:
+            break;
+    }
 
 }
 
@@ -32,4 +41,9 @@ void Manager::Update() {
 
 void Manager::Render() {
 
+}
+
+void Manager::Clean() {
+    SDL_DestroyWindow(window);
+    SDL_DestroyRenderer(renderer);
 }

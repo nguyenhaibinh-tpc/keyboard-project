@@ -4,5 +4,6 @@
 CMakeFiles/keyboard_project.dir/Manager.cpp.obj: ../Manager.cpp
 CMakeFiles/keyboard_project.dir/Manager.cpp.obj: ../Manager.h
 
+CMakeFiles/keyboard_project.dir/main.cpp.obj: ../Manager.h
 CMakeFiles/keyboard_project.dir/main.cpp.obj: ../main.cpp
 

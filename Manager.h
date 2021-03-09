@@ -10,17 +10,23 @@
 class Manager {
 public:
     Manager();
+
     ~Manager();
 
     void Init(const char *title, int x_pos, int y_pos, int width, int height, bool fullscreen);
     void HandleEvents();
     void Update();
     void Render();
+    void Clean();
 
 private:
     bool isRunning;
     SDL_Window *window;
     SDL_Renderer *renderer;
+public:
+    bool getIsRunning() {
+        return isRunning;
+    }
 };
 
 #endif //KEYBOARD_PROJECT_MANAGER_H

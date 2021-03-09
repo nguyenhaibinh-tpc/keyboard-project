@@ -1,21 +1,28 @@
 #include <iostream>
 #include "Manager.h"
 
-void game()
-{
-    if(1){
+void game() {
+    if (1) {
 
-    } else{
+    } else {
 
     }
 }
 
-void render()
-{
+void render() {
 
 }
 
-int main() {
-    std::cout << "Hello, World!" << std::endl;
+int main(int argc, char *args[]) {
+    Manager *game = new Manager();
+
+    game->Init("Magic Keyboard", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, 0);
+
+    while (game->getIsRunning()) {
+        game->HandleEvents();
+        game->Update();
+        game->Render();
+    }
+
     return 0;
 }

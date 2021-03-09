@@ -2,7 +2,7 @@
 
 void game()
 {
-    i love chinese
+    i love china dog numba wan
 }
 
 void render()

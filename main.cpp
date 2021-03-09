@@ -2,7 +2,7 @@
 
 void game()
 {
-    
+
 }
 
 void render()

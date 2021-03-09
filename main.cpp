@@ -1,8 +1,13 @@
 #include <iostream>
 
-void render()
+void game()
 {
     
+}
+
+void render()
+{
+
 }
 
 int main() {

@@ -55,22 +55,22 @@ void Manager::InitMenu() {
     menuBackground = new AnimatedObject();
     menuBackground->SetAnimation(TextureLoader::GetAnimation("menu-background-"));
     menuBackground->SetAnimationDelay(120);
-    menuBackground->SetDestR(0,0,800,600);
+    menuBackground->SetDestR(0, 0, 800, 600);
 
     startButton = new Button();
     startButton->SetTexture(TextureLoader::LoadTexture("../resources/menu-button.png"));
-    startButton->SetSrcR(0,0,625,125);
-    startButton->SetDestR(320,100 + 250,156,31);
+    startButton->SetSrcR(0, 0, 625, 125);
+    startButton->SetDestR(320, 100 + 250, 156, 31);
 
     optionsButton = new Button();
     optionsButton->SetTexture(TextureLoader::LoadTexture("../resources/menu-button.png"));
-    optionsButton->SetSrcR(0,125,625,162);
-    optionsButton->SetDestR(320,140+ 250,156,40);
+    optionsButton->SetSrcR(0, 125, 625, 162);
+    optionsButton->SetDestR(320, 140 + 250, 156, 40);
 
     exitButton = new Button();
     exitButton->SetTexture(TextureLoader::LoadTexture("../resources/menu-button.png"));
-    exitButton->SetSrcR(0,287,625,125);
-    exitButton->SetDestR(320,180+ 250,156,31);
+    exitButton->SetSrcR(0, 287, 625, 125);
+    exitButton->SetDestR(320, 180 + 250, 156, 31);
 }
 
 void Manager::HandleMenuEvents() {

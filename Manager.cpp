@@ -56,6 +56,21 @@ void Manager::InitMenu() {
     menuBackground->SetAnimation(TextureLoader::GetAnimation("menu-background-"));
     menuBackground->SetAnimationDelay(120);
     menuBackground->SetDestR(0,0,800,600);
+
+    startButton = new Button();
+    startButton->SetTexture(TextureLoader::LoadTexture("../resources/menu-button.png"));
+    startButton->SetSrcR(0,0,625,125);
+    startButton->SetDestR(320,100 + 250,156,31);
+
+    optionsButton = new Button();
+    optionsButton->SetTexture(TextureLoader::LoadTexture("../resources/menu-button.png"));
+    optionsButton->SetSrcR(0,125,625,162);
+    optionsButton->SetDestR(320,140+ 250,156,40);
+
+    exitButton = new Button();
+    exitButton->SetTexture(TextureLoader::LoadTexture("../resources/menu-button.png"));
+    exitButton->SetSrcR(0,287,625,125);
+    exitButton->SetDestR(320,180+ 250,156,31);
 }
 
 void Manager::HandleMenuEvents() {
@@ -89,6 +104,9 @@ void Manager::RenderMenu() {
     SDL_RenderClear(renderer);
     menuBackground->Render();
     gameLogo->Render();
+    startButton->Render(1);
+    optionsButton->Render(1);
+    exitButton->Render(1);
     SDL_RenderPresent(renderer);
 }
 

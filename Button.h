@@ -12,7 +12,7 @@ public:
     Button(bool active = true);
     void SetTexture(SDL_Texture *texture);
     void HandleEvents(SDL_Event event);
-    void Render();
+    void Render(int state = 0);
     void SetSrcR(int x,int y,int w,int h);
     void SetDestR(int x,int y,int w,int h);
 

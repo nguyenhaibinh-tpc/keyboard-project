@@ -37,6 +37,9 @@ public:
 
     Button *testButton;
     Button *gameLogo;
+    Button *startButton;
+    Button *optionsButton;
+    Button *exitButton;
     AnimatedObject *menuBackground;
 
 public:

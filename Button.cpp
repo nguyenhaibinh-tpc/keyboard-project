@@ -25,26 +25,27 @@ void Button::HandleEvents(SDL_Event event) {
     }
 }
 
-void Button::Render() {
-    //SDL_RenderCopy(Manager::renderer, texture, &srcR, &destR);
+void Button::Render(int state) {
+    state ? SDL_RenderCopy(Manager::renderer, texture, &srcR, &destR) :
     SDL_RenderCopy(Manager::renderer, texture, nullptr, &destR);
 }
 
 Button::Button(bool active) {
     isActive = active;
     isClicked = false;
+    lastUsedTime = 0;
 }
 
-void Button::SetSrcR(int x,int y,int w,int h) {
-    Button::srcR.x=x;
-    Button::srcR.y=y;
-    Button::srcR.w=w;
-    Button::srcR.h=h;
+void Button::SetSrcR(int x, int y, int w, int h) {
+    Button::srcR.x = x;
+    Button::srcR.y = y;
+    Button::srcR.w = w;
+    Button::srcR.h = h;
 }
 
-void Button::SetDestR(int x,int y,int w,int h) {
-    Button::destR.x=x;
-    Button::destR.y=y;
-    Button::destR.w=w;
-    Button::destR.h=h;
+void Button::SetDestR(int x, int y, int w, int h) {
+    Button::destR.x = x;
+    Button::destR.y = y;
+    Button::destR.w = w;
+    Button::destR.h = h;
 }

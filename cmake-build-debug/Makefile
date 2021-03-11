@@ -142,6 +142,60 @@ keyboard_project/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/build
 .PHONY : keyboard_project/fast
 
+AnimatedObject.obj: AnimatedObject.cpp.obj
+
+.PHONY : AnimatedObject.obj
+
+# target to build an object file
+AnimatedObject.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/AnimatedObject.cpp.obj
+.PHONY : AnimatedObject.cpp.obj
+
+AnimatedObject.i: AnimatedObject.cpp.i
+
+.PHONY : AnimatedObject.i
+
+# target to preprocess a source file
+AnimatedObject.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/AnimatedObject.cpp.i
+.PHONY : AnimatedObject.cpp.i
+
+AnimatedObject.s: AnimatedObject.cpp.s
+
+.PHONY : AnimatedObject.s
+
+# target to generate assembly for a file
+AnimatedObject.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/AnimatedObject.cpp.s
+.PHONY : AnimatedObject.cpp.s
+
+Button.obj: Button.cpp.obj
+
+.PHONY : Button.obj
+
+# target to build an object file
+Button.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/Button.cpp.obj
+.PHONY : Button.cpp.obj
+
+Button.i: Button.cpp.i
+
+.PHONY : Button.i
+
+# target to preprocess a source file
+Button.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/Button.cpp.i
+.PHONY : Button.cpp.i
+
+Button.s: Button.cpp.s
+
+.PHONY : Button.s
+
+# target to generate assembly for a file
+Button.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/Button.cpp.s
+.PHONY : Button.cpp.s
+
 Manager.obj: Manager.cpp.obj
 
 .PHONY : Manager.obj
@@ -168,6 +222,33 @@ Manager.s: Manager.cpp.s
 Manager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/Manager.cpp.s
 .PHONY : Manager.cpp.s
+
+TextureLoader.obj: TextureLoader.cpp.obj
+
+.PHONY : TextureLoader.obj
+
+# target to build an object file
+TextureLoader.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/TextureLoader.cpp.obj
+.PHONY : TextureLoader.cpp.obj
+
+TextureLoader.i: TextureLoader.cpp.i
+
+.PHONY : TextureLoader.i
+
+# target to preprocess a source file
+TextureLoader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/TextureLoader.cpp.i
+.PHONY : TextureLoader.cpp.i
+
+TextureLoader.s: TextureLoader.cpp.s
+
+.PHONY : TextureLoader.s
+
+# target to generate assembly for a file
+TextureLoader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/TextureLoader.cpp.s
+.PHONY : TextureLoader.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -205,9 +286,18 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... keyboard_project
+	@echo ... AnimatedObject.obj
+	@echo ... AnimatedObject.i
+	@echo ... AnimatedObject.s
+	@echo ... Button.obj
+	@echo ... Button.i
+	@echo ... Button.s
 	@echo ... Manager.obj
 	@echo ... Manager.i
 	@echo ... Manager.s
+	@echo ... TextureLoader.obj
+	@echo ... TextureLoader.i
+	@echo ... TextureLoader.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

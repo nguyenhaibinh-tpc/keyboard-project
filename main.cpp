@@ -1,27 +1,23 @@
 #include <iostream>
 #include "Manager.h"
 
-void game() {
-    if (1) {
-
-    } else {
-
-    }
-}
-
-void render() {
-
-}
+Manager *game;
 
 int main(int argc, char *args[]) {
-    Manager *game = new Manager();
+    game = new Manager();
 
-    game->Init("Magic Keyboard", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, 0);
-
-    while (game->getIsRunning()) {
-        game->HandleEvents();
-        game->Update();
-        game->Render();
+    game->Init("Title", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
+    game->InitMenu();
+    while (game->GetIsRunning()) {
+        if (game->GetIsAtMenu()) {
+            game->HandleMenuEvents();
+            game->UpdateMenu();
+            game->RenderMenu();
+        } else {
+            game->HandleGameEvents();
+            game->UpdateGame();
+            game->RenderGame();
+        }
     }
 
     return 0;

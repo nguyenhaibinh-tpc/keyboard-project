@@ -6,19 +6,39 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/pc/Documents/GitHub/keyboard-project/AnimatedObject.h
+vector
+-
+SDL2/SDL.h
+C:/Users/pc/Documents/GitHub/keyboard-project/SDL2/SDL.h
+
+C:/Users/pc/Documents/GitHub/keyboard-project/Button.h
+SDL2/SDL.h
+C:/Users/pc/Documents/GitHub/keyboard-project/SDL2/SDL.h
+
 C:/Users/pc/Documents/GitHub/keyboard-project/Manager.cpp
 iostream
 -
 Manager.h
 C:/Users/pc/Documents/GitHub/keyboard-project/Manager.h
+TextureLoader.h
+C:/Users/pc/Documents/GitHub/keyboard-project/TextureLoader.h
 
 C:/Users/pc/Documents/GitHub/keyboard-project/Manager.h
 SDL2/SDL.h
 C:/Users/pc/Documents/GitHub/keyboard-project/SDL2/SDL.h
+Button.h
+C:/Users/pc/Documents/GitHub/keyboard-project/Button.h
+AnimatedObject.h
+C:/Users/pc/Documents/GitHub/keyboard-project/AnimatedObject.h
 
-C:/Users/pc/Documents/GitHub/keyboard-project/main.cpp
-iostream
+C:/Users/pc/Documents/GitHub/keyboard-project/TextureLoader.h
+string
 -
-Manager.h
-C:/Users/pc/Documents/GitHub/keyboard-project/Manager.h
+vector
+-
+SDL2/SDL.h
+C:/Users/pc/Documents/GitHub/keyboard-project/SDL2/SDL.h
+SDL2/SDL_image.h
+C:/Users/pc/Documents/GitHub/keyboard-project/SDL2/SDL_image.h
 

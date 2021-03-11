@@ -82,10 +82,28 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/pc/Documents/GitHub/keyboard-project/AnimatedObject.cpp">
+			<Option target="keyboard_project"/>
+		</Unit>
+		<Unit filename="C:/Users/pc/Documents/GitHub/keyboard-project/AnimatedObject.h">
+			<Option target="keyboard_project"/>
+		</Unit>
+		<Unit filename="C:/Users/pc/Documents/GitHub/keyboard-project/Button.cpp">
+			<Option target="keyboard_project"/>
+		</Unit>
+		<Unit filename="C:/Users/pc/Documents/GitHub/keyboard-project/Button.h">
+			<Option target="keyboard_project"/>
+		</Unit>
 		<Unit filename="C:/Users/pc/Documents/GitHub/keyboard-project/Manager.cpp">
 			<Option target="keyboard_project"/>
 		</Unit>
 		<Unit filename="C:/Users/pc/Documents/GitHub/keyboard-project/Manager.h">
+			<Option target="keyboard_project"/>
+		</Unit>
+		<Unit filename="C:/Users/pc/Documents/GitHub/keyboard-project/TextureLoader.cpp">
+			<Option target="keyboard_project"/>
+		</Unit>
+		<Unit filename="C:/Users/pc/Documents/GitHub/keyboard-project/TextureLoader.h">
 			<Option target="keyboard_project"/>
 		</Unit>
 		<Unit filename="C:/Users/pc/Documents/GitHub/keyboard-project/main.cpp">

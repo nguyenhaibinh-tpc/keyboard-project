@@ -94,6 +94,12 @@
 		<Unit filename="C:/Users/pc/Documents/GitHub/keyboard-project/Button.h">
 			<Option target="keyboard_project"/>
 		</Unit>
+		<Unit filename="C:/Users/pc/Documents/GitHub/keyboard-project/Entity.cpp">
+			<Option target="keyboard_project"/>
+		</Unit>
+		<Unit filename="C:/Users/pc/Documents/GitHub/keyboard-project/Entity.h">
+			<Option target="keyboard_project"/>
+		</Unit>
 		<Unit filename="C:/Users/pc/Documents/GitHub/keyboard-project/Manager.cpp">
 			<Option target="keyboard_project"/>
 		</Unit>
@@ -107,6 +113,12 @@
 			<Option target="keyboard_project"/>
 		</Unit>
 		<Unit filename="C:/Users/pc/Documents/GitHub/keyboard-project/main.cpp">
+			<Option target="keyboard_project"/>
+		</Unit>
+		<Unit filename="C:/Users/pc/Documents/GitHub/keyboard-project/resources/Entity.cpp">
+			<Option target="keyboard_project"/>
+		</Unit>
+		<Unit filename="C:/Users/pc/Documents/GitHub/keyboard-project/resources/Entity.h">
 			<Option target="keyboard_project"/>
 		</Unit>
 		<Unit filename="C:/Users/pc/Documents/GitHub/keyboard-project/CMakeLists.txt">

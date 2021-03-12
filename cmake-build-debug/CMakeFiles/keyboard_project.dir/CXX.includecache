@@ -16,13 +16,25 @@ C:/Users/pc/Documents/GitHub/keyboard-project/Button.h
 SDL2/SDL.h
 C:/Users/pc/Documents/GitHub/keyboard-project/SDL2/SDL.h
 
-C:/Users/pc/Documents/GitHub/keyboard-project/Manager.cpp
+C:/Users/pc/Documents/GitHub/keyboard-project/Entity.cpp
+vector
+-
 iostream
 -
-Manager.h
-C:/Users/pc/Documents/GitHub/keyboard-project/Manager.h
+Entity.h
+C:/Users/pc/Documents/GitHub/keyboard-project/Entity.h
 TextureLoader.h
 C:/Users/pc/Documents/GitHub/keyboard-project/TextureLoader.h
+Manager.h
+C:/Users/pc/Documents/GitHub/keyboard-project/Manager.h
+
+C:/Users/pc/Documents/GitHub/keyboard-project/Entity.h
+string
+-
+SDL2/SDL.h
+C:/Users/pc/Documents/GitHub/keyboard-project/SDL2/SDL.h
+AnimatedObject.h
+C:/Users/pc/Documents/GitHub/keyboard-project/AnimatedObject.h
 
 C:/Users/pc/Documents/GitHub/keyboard-project/Manager.h
 SDL2/SDL.h
@@ -31,6 +43,10 @@ Button.h
 C:/Users/pc/Documents/GitHub/keyboard-project/Button.h
 AnimatedObject.h
 C:/Users/pc/Documents/GitHub/keyboard-project/AnimatedObject.h
+string
+C:/Users/pc/Documents/GitHub/keyboard-project/string
+Entity.h
+C:/Users/pc/Documents/GitHub/keyboard-project/Entity.h
 
 C:/Users/pc/Documents/GitHub/keyboard-project/TextureLoader.h
 string
@@ -41,4 +57,6 @@ SDL2/SDL.h
 C:/Users/pc/Documents/GitHub/keyboard-project/SDL2/SDL.h
 SDL2/SDL_image.h
 C:/Users/pc/Documents/GitHub/keyboard-project/SDL2/SDL_image.h
+SDL2/SDL_ttf.h
+C:/Users/pc/Documents/GitHub/keyboard-project/SDL2/SDL_ttf.h
 

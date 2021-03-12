@@ -25,8 +25,8 @@ public:
     SDL_Rect destR;
 
     Uint32 animationDelay;
-    Uint32 lastAnimationTime;
-    int currentAnimation;
+    Uint32 lastAnimationTime = 0;
+    int currentAnimation = 0;
 };
 
 

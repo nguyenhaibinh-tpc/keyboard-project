@@ -8,6 +8,8 @@
 #include "SDL2/SDL.h"
 #include "Button.h"
 #include "AnimatedObject.h"
+#include "string"
+#include "Entity.h"
 
 class Manager {
 public:
@@ -18,15 +20,22 @@ public:
     void Init(const char *title, int x_pos, int y_pos, int width, int height, bool fullscreen);
 
     void HandleGameEvents();
+
     void UpdateGame();
+
     void RenderGame();
 
     void InitMenu();
+
     void HandleMenuEvents();
+
     void UpdateMenu();
+
     void RenderMenu();
 
     void Clean();
+
+    void InitDictionary();
 
     static SDL_Renderer *renderer;
 
@@ -40,7 +49,19 @@ public:
     Button *startButton;
     Button *optionsButton;
     Button *exitButton;
+    Button *handPointer;
+
+    int handPointerPos = 0;
+
     AnimatedObject *menuBackground;
+
+    std::vector<std::string> dictionary;
+    std::vector<std::string> effortlessWords;
+    std::vector<std::string> easyWords;
+    std::vector<std::string> normalWords;
+    std::vector<std::string> hardWords;
+    std::vector<std::string> extremeWords;
+    std::vector<Entity *> enemies;
 
 public:
     bool GetIsRunning() {

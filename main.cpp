@@ -6,8 +6,9 @@ Manager *game;
 int main(int argc, char *args[]) {
     game = new Manager();
 
-    game->Init("Title", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, false);
+    game->Init("Title", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1000, 600, false);
     game->InitMenu();
+    game->InitDictionary();
     while (game->GetIsRunning()) {
         if (game->GetIsAtMenu()) {
             game->HandleMenuEvents();
@@ -19,6 +20,6 @@ int main(int argc, char *args[]) {
             game->RenderGame();
         }
     }
-
+    game->Clean();
     return 0;
 }

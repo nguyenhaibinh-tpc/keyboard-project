@@ -196,6 +196,33 @@ Button.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/Button.cpp.s
 .PHONY : Button.cpp.s
 
+Entity.obj: Entity.cpp.obj
+
+.PHONY : Entity.obj
+
+# target to build an object file
+Entity.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/Entity.cpp.obj
+.PHONY : Entity.cpp.obj
+
+Entity.i: Entity.cpp.i
+
+.PHONY : Entity.i
+
+# target to preprocess a source file
+Entity.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/Entity.cpp.i
+.PHONY : Entity.cpp.i
+
+Entity.s: Entity.cpp.s
+
+.PHONY : Entity.s
+
+# target to generate assembly for a file
+Entity.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/Entity.cpp.s
+.PHONY : Entity.cpp.s
+
 Manager.obj: Manager.cpp.obj
 
 .PHONY : Manager.obj
@@ -277,6 +304,33 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+resources/Entity.obj: resources/Entity.cpp.obj
+
+.PHONY : resources/Entity.obj
+
+# target to build an object file
+resources/Entity.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/resources/Entity.cpp.obj
+.PHONY : resources/Entity.cpp.obj
+
+resources/Entity.i: resources/Entity.cpp.i
+
+.PHONY : resources/Entity.i
+
+# target to preprocess a source file
+resources/Entity.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/resources/Entity.cpp.i
+.PHONY : resources/Entity.cpp.i
+
+resources/Entity.s: resources/Entity.cpp.s
+
+.PHONY : resources/Entity.s
+
+# target to generate assembly for a file
+resources/Entity.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/resources/Entity.cpp.s
+.PHONY : resources/Entity.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -292,6 +346,9 @@ help:
 	@echo ... Button.obj
 	@echo ... Button.i
 	@echo ... Button.s
+	@echo ... Entity.obj
+	@echo ... Entity.i
+	@echo ... Entity.s
 	@echo ... Manager.obj
 	@echo ... Manager.i
 	@echo ... Manager.s
@@ -301,6 +358,9 @@ help:
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... resources/Entity.obj
+	@echo ... resources/Entity.i
+	@echo ... resources/Entity.s
 .PHONY : help
 
 

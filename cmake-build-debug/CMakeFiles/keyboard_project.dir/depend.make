@@ -4,27 +4,42 @@
 CMakeFiles/keyboard_project.dir/AnimatedObject.cpp.obj: ../AnimatedObject.cpp
 CMakeFiles/keyboard_project.dir/AnimatedObject.cpp.obj: ../AnimatedObject.h
 CMakeFiles/keyboard_project.dir/AnimatedObject.cpp.obj: ../Button.h
+CMakeFiles/keyboard_project.dir/AnimatedObject.cpp.obj: ../Entity.h
 CMakeFiles/keyboard_project.dir/AnimatedObject.cpp.obj: ../Manager.h
 
 CMakeFiles/keyboard_project.dir/Button.cpp.obj: ../AnimatedObject.h
 CMakeFiles/keyboard_project.dir/Button.cpp.obj: ../Button.cpp
 CMakeFiles/keyboard_project.dir/Button.cpp.obj: ../Button.h
+CMakeFiles/keyboard_project.dir/Button.cpp.obj: ../Entity.h
 CMakeFiles/keyboard_project.dir/Button.cpp.obj: ../Manager.h
+
+CMakeFiles/keyboard_project.dir/Entity.cpp.obj: ../AnimatedObject.h
+CMakeFiles/keyboard_project.dir/Entity.cpp.obj: ../Button.h
+CMakeFiles/keyboard_project.dir/Entity.cpp.obj: ../Entity.cpp
+CMakeFiles/keyboard_project.dir/Entity.cpp.obj: ../Entity.h
+CMakeFiles/keyboard_project.dir/Entity.cpp.obj: ../Manager.h
+CMakeFiles/keyboard_project.dir/Entity.cpp.obj: ../TextureLoader.h
 
 CMakeFiles/keyboard_project.dir/Manager.cpp.obj: ../AnimatedObject.h
 CMakeFiles/keyboard_project.dir/Manager.cpp.obj: ../Button.h
+CMakeFiles/keyboard_project.dir/Manager.cpp.obj: ../Entity.h
 CMakeFiles/keyboard_project.dir/Manager.cpp.obj: ../Manager.cpp
 CMakeFiles/keyboard_project.dir/Manager.cpp.obj: ../Manager.h
 CMakeFiles/keyboard_project.dir/Manager.cpp.obj: ../TextureLoader.h
 
 CMakeFiles/keyboard_project.dir/TextureLoader.cpp.obj: ../AnimatedObject.h
 CMakeFiles/keyboard_project.dir/TextureLoader.cpp.obj: ../Button.h
+CMakeFiles/keyboard_project.dir/TextureLoader.cpp.obj: ../Entity.h
 CMakeFiles/keyboard_project.dir/TextureLoader.cpp.obj: ../Manager.h
 CMakeFiles/keyboard_project.dir/TextureLoader.cpp.obj: ../TextureLoader.cpp
 CMakeFiles/keyboard_project.dir/TextureLoader.cpp.obj: ../TextureLoader.h
 
 CMakeFiles/keyboard_project.dir/main.cpp.obj: ../AnimatedObject.h
 CMakeFiles/keyboard_project.dir/main.cpp.obj: ../Button.h
+CMakeFiles/keyboard_project.dir/main.cpp.obj: ../Entity.h
 CMakeFiles/keyboard_project.dir/main.cpp.obj: ../Manager.h
 CMakeFiles/keyboard_project.dir/main.cpp.obj: ../main.cpp
+
+CMakeFiles/keyboard_project.dir/resources/Entity.cpp.obj: ../resources/Entity.cpp
+CMakeFiles/keyboard_project.dir/resources/Entity.cpp.obj: ../resources/Entity.h
 

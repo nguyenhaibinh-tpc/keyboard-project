@@ -53,19 +53,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Users\pc\AppData\Local\JetBrains\CLion 2020.3.1\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Users\pc\AppData\Local\JetBrains\CLion 2020.3.1\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\pc\Documents\GitHub\keyboard-project
+CMAKE_SOURCE_DIR = C:\Users\LEGION\Documents\GitHub\keyboard-project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\pc\Documents\GitHub\keyboard-project\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\LEGION\Documents\GitHub\keyboard-project\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/keyboard_project.dir/depend.make
@@ -78,104 +78,62 @@ include CMakeFiles/keyboard_project.dir/flags.make
 
 CMakeFiles/keyboard_project.dir/main.cpp.obj: CMakeFiles/keyboard_project.dir/flags.make
 CMakeFiles/keyboard_project.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\pc\Documents\GitHub\keyboard-project\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/keyboard_project.dir/main.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\keyboard_project.dir\main.cpp.obj -c C:\Users\pc\Documents\GitHub\keyboard-project\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\LEGION\Documents\GitHub\keyboard-project\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/keyboard_project.dir/main.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\keyboard_project.dir\main.cpp.obj -c C:\Users\LEGION\Documents\GitHub\keyboard-project\main.cpp
 
 CMakeFiles/keyboard_project.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/keyboard_project.dir/main.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\pc\Documents\GitHub\keyboard-project\main.cpp > CMakeFiles\keyboard_project.dir\main.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\LEGION\Documents\GitHub\keyboard-project\main.cpp > CMakeFiles\keyboard_project.dir\main.cpp.i
 
 CMakeFiles/keyboard_project.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/keyboard_project.dir/main.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\pc\Documents\GitHub\keyboard-project\main.cpp -o CMakeFiles\keyboard_project.dir\main.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\LEGION\Documents\GitHub\keyboard-project\main.cpp -o CMakeFiles\keyboard_project.dir\main.cpp.s
 
 CMakeFiles/keyboard_project.dir/Manager.cpp.obj: CMakeFiles/keyboard_project.dir/flags.make
 CMakeFiles/keyboard_project.dir/Manager.cpp.obj: ../Manager.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\pc\Documents\GitHub\keyboard-project\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/keyboard_project.dir/Manager.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\keyboard_project.dir\Manager.cpp.obj -c C:\Users\pc\Documents\GitHub\keyboard-project\Manager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\LEGION\Documents\GitHub\keyboard-project\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/keyboard_project.dir/Manager.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\keyboard_project.dir\Manager.cpp.obj -c C:\Users\LEGION\Documents\GitHub\keyboard-project\Manager.cpp
 
 CMakeFiles/keyboard_project.dir/Manager.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/keyboard_project.dir/Manager.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\pc\Documents\GitHub\keyboard-project\Manager.cpp > CMakeFiles\keyboard_project.dir\Manager.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\LEGION\Documents\GitHub\keyboard-project\Manager.cpp > CMakeFiles\keyboard_project.dir\Manager.cpp.i
 
 CMakeFiles/keyboard_project.dir/Manager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/keyboard_project.dir/Manager.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\pc\Documents\GitHub\keyboard-project\Manager.cpp -o CMakeFiles\keyboard_project.dir\Manager.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\LEGION\Documents\GitHub\keyboard-project\Manager.cpp -o CMakeFiles\keyboard_project.dir\Manager.cpp.s
 
 CMakeFiles/keyboard_project.dir/TextureLoader.cpp.obj: CMakeFiles/keyboard_project.dir/flags.make
 CMakeFiles/keyboard_project.dir/TextureLoader.cpp.obj: ../TextureLoader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\pc\Documents\GitHub\keyboard-project\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/keyboard_project.dir/TextureLoader.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\keyboard_project.dir\TextureLoader.cpp.obj -c C:\Users\pc\Documents\GitHub\keyboard-project\TextureLoader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\LEGION\Documents\GitHub\keyboard-project\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/keyboard_project.dir/TextureLoader.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\keyboard_project.dir\TextureLoader.cpp.obj -c C:\Users\LEGION\Documents\GitHub\keyboard-project\TextureLoader.cpp
 
 CMakeFiles/keyboard_project.dir/TextureLoader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/keyboard_project.dir/TextureLoader.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\pc\Documents\GitHub\keyboard-project\TextureLoader.cpp > CMakeFiles\keyboard_project.dir\TextureLoader.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\LEGION\Documents\GitHub\keyboard-project\TextureLoader.cpp > CMakeFiles\keyboard_project.dir\TextureLoader.cpp.i
 
 CMakeFiles/keyboard_project.dir/TextureLoader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/keyboard_project.dir/TextureLoader.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\pc\Documents\GitHub\keyboard-project\TextureLoader.cpp -o CMakeFiles\keyboard_project.dir\TextureLoader.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\LEGION\Documents\GitHub\keyboard-project\TextureLoader.cpp -o CMakeFiles\keyboard_project.dir\TextureLoader.cpp.s
 
-CMakeFiles/keyboard_project.dir/Button.cpp.obj: CMakeFiles/keyboard_project.dir/flags.make
-CMakeFiles/keyboard_project.dir/Button.cpp.obj: ../Button.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\pc\Documents\GitHub\keyboard-project\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/keyboard_project.dir/Button.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\keyboard_project.dir\Button.cpp.obj -c C:\Users\pc\Documents\GitHub\keyboard-project\Button.cpp
+CMakeFiles/keyboard_project.dir/Object.cpp.obj: CMakeFiles/keyboard_project.dir/flags.make
+CMakeFiles/keyboard_project.dir/Object.cpp.obj: ../Object.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\LEGION\Documents\GitHub\keyboard-project\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/keyboard_project.dir/Object.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\keyboard_project.dir\Object.cpp.obj -c C:\Users\LEGION\Documents\GitHub\keyboard-project\Object.cpp
 
-CMakeFiles/keyboard_project.dir/Button.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/keyboard_project.dir/Button.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\pc\Documents\GitHub\keyboard-project\Button.cpp > CMakeFiles\keyboard_project.dir\Button.cpp.i
+CMakeFiles/keyboard_project.dir/Object.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/keyboard_project.dir/Object.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\LEGION\Documents\GitHub\keyboard-project\Object.cpp > CMakeFiles\keyboard_project.dir\Object.cpp.i
 
-CMakeFiles/keyboard_project.dir/Button.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/keyboard_project.dir/Button.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\pc\Documents\GitHub\keyboard-project\Button.cpp -o CMakeFiles\keyboard_project.dir\Button.cpp.s
-
-CMakeFiles/keyboard_project.dir/AnimatedObject.cpp.obj: CMakeFiles/keyboard_project.dir/flags.make
-CMakeFiles/keyboard_project.dir/AnimatedObject.cpp.obj: ../AnimatedObject.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\pc\Documents\GitHub\keyboard-project\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/keyboard_project.dir/AnimatedObject.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\keyboard_project.dir\AnimatedObject.cpp.obj -c C:\Users\pc\Documents\GitHub\keyboard-project\AnimatedObject.cpp
-
-CMakeFiles/keyboard_project.dir/AnimatedObject.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/keyboard_project.dir/AnimatedObject.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\pc\Documents\GitHub\keyboard-project\AnimatedObject.cpp > CMakeFiles\keyboard_project.dir\AnimatedObject.cpp.i
-
-CMakeFiles/keyboard_project.dir/AnimatedObject.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/keyboard_project.dir/AnimatedObject.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\pc\Documents\GitHub\keyboard-project\AnimatedObject.cpp -o CMakeFiles\keyboard_project.dir\AnimatedObject.cpp.s
-
-CMakeFiles/keyboard_project.dir/resources/Entity.cpp.obj: CMakeFiles/keyboard_project.dir/flags.make
-CMakeFiles/keyboard_project.dir/resources/Entity.cpp.obj: ../resources/Entity.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\pc\Documents\GitHub\keyboard-project\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/keyboard_project.dir/resources/Entity.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\keyboard_project.dir\resources\Entity.cpp.obj -c C:\Users\pc\Documents\GitHub\keyboard-project\resources\Entity.cpp
-
-CMakeFiles/keyboard_project.dir/resources/Entity.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/keyboard_project.dir/resources/Entity.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\pc\Documents\GitHub\keyboard-project\resources\Entity.cpp > CMakeFiles\keyboard_project.dir\resources\Entity.cpp.i
-
-CMakeFiles/keyboard_project.dir/resources/Entity.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/keyboard_project.dir/resources/Entity.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\pc\Documents\GitHub\keyboard-project\resources\Entity.cpp -o CMakeFiles\keyboard_project.dir\resources\Entity.cpp.s
-
-CMakeFiles/keyboard_project.dir/Entity.cpp.obj: CMakeFiles/keyboard_project.dir/flags.make
-CMakeFiles/keyboard_project.dir/Entity.cpp.obj: ../Entity.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\pc\Documents\GitHub\keyboard-project\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/keyboard_project.dir/Entity.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\keyboard_project.dir\Entity.cpp.obj -c C:\Users\pc\Documents\GitHub\keyboard-project\Entity.cpp
-
-CMakeFiles/keyboard_project.dir/Entity.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/keyboard_project.dir/Entity.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\pc\Documents\GitHub\keyboard-project\Entity.cpp > CMakeFiles\keyboard_project.dir\Entity.cpp.i
-
-CMakeFiles/keyboard_project.dir/Entity.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/keyboard_project.dir/Entity.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\pc\Documents\GitHub\keyboard-project\Entity.cpp -o CMakeFiles\keyboard_project.dir\Entity.cpp.s
+CMakeFiles/keyboard_project.dir/Object.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/keyboard_project.dir/Object.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\LEGION\Documents\GitHub\keyboard-project\Object.cpp -o CMakeFiles\keyboard_project.dir\Object.cpp.s
 
 # Object files for target keyboard_project
 keyboard_project_OBJECTS = \
 "CMakeFiles/keyboard_project.dir/main.cpp.obj" \
 "CMakeFiles/keyboard_project.dir/Manager.cpp.obj" \
 "CMakeFiles/keyboard_project.dir/TextureLoader.cpp.obj" \
-"CMakeFiles/keyboard_project.dir/Button.cpp.obj" \
-"CMakeFiles/keyboard_project.dir/AnimatedObject.cpp.obj" \
-"CMakeFiles/keyboard_project.dir/resources/Entity.cpp.obj" \
-"CMakeFiles/keyboard_project.dir/Entity.cpp.obj"
+"CMakeFiles/keyboard_project.dir/Object.cpp.obj"
 
 # External object files for target keyboard_project
 keyboard_project_EXTERNAL_OBJECTS =
@@ -183,15 +141,12 @@ keyboard_project_EXTERNAL_OBJECTS =
 keyboard_project.exe: CMakeFiles/keyboard_project.dir/main.cpp.obj
 keyboard_project.exe: CMakeFiles/keyboard_project.dir/Manager.cpp.obj
 keyboard_project.exe: CMakeFiles/keyboard_project.dir/TextureLoader.cpp.obj
-keyboard_project.exe: CMakeFiles/keyboard_project.dir/Button.cpp.obj
-keyboard_project.exe: CMakeFiles/keyboard_project.dir/AnimatedObject.cpp.obj
-keyboard_project.exe: CMakeFiles/keyboard_project.dir/resources/Entity.cpp.obj
-keyboard_project.exe: CMakeFiles/keyboard_project.dir/Entity.cpp.obj
+keyboard_project.exe: CMakeFiles/keyboard_project.dir/Object.cpp.obj
 keyboard_project.exe: CMakeFiles/keyboard_project.dir/build.make
 keyboard_project.exe: CMakeFiles/keyboard_project.dir/linklibs.rsp
 keyboard_project.exe: CMakeFiles/keyboard_project.dir/objects1.rsp
 keyboard_project.exe: CMakeFiles/keyboard_project.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\pc\Documents\GitHub\keyboard-project\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable keyboard_project.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\LEGION\Documents\GitHub\keyboard-project\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable keyboard_project.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\keyboard_project.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -204,6 +159,6 @@ CMakeFiles/keyboard_project.dir/clean:
 .PHONY : CMakeFiles/keyboard_project.dir/clean
 
 CMakeFiles/keyboard_project.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\pc\Documents\GitHub\keyboard-project C:\Users\pc\Documents\GitHub\keyboard-project C:\Users\pc\Documents\GitHub\keyboard-project\cmake-build-debug C:\Users\pc\Documents\GitHub\keyboard-project\cmake-build-debug C:\Users\pc\Documents\GitHub\keyboard-project\cmake-build-debug\CMakeFiles\keyboard_project.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\LEGION\Documents\GitHub\keyboard-project C:\Users\LEGION\Documents\GitHub\keyboard-project C:\Users\LEGION\Documents\GitHub\keyboard-project\cmake-build-debug C:\Users\LEGION\Documents\GitHub\keyboard-project\cmake-build-debug C:\Users\LEGION\Documents\GitHub\keyboard-project\cmake-build-debug\CMakeFiles\keyboard_project.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/keyboard_project.dir/depend
 

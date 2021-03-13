@@ -58,19 +58,19 @@ cmake_force:
 SHELL = cmd.exe
 
 # The CMake executable.
-CMAKE_COMMAND = "C:\Users\pc\AppData\Local\JetBrains\CLion 2020.3.1\bin\cmake\win\bin\cmake.exe"
+CMAKE_COMMAND = "C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe"
 
 # The command to remove a file.
-RM = "C:\Users\pc\AppData\Local\JetBrains\CLion 2020.3.1\bin\cmake\win\bin\cmake.exe" -E rm -f
+RM = "C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\pc\Documents\GitHub\keyboard-project
+CMAKE_SOURCE_DIR = C:\Users\LEGION\Documents\GitHub\keyboard-project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\pc\Documents\GitHub\keyboard-project\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\LEGION\Documents\GitHub\keyboard-project\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -78,7 +78,7 @@ CMAKE_BINARY_DIR = C:\Users\pc\Documents\GitHub\keyboard-project\cmake-build-deb
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	"C:\Users\pc\AppData\Local\JetBrains\CLion 2020.3.1\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
+	"C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" -E echo "No interactive CMake dialog available."
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -89,7 +89,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"C:\Users\pc\AppData\Local\JetBrains\CLion 2020.3.1\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	"C:\Program Files\JetBrains\CLion 2020.3.2\bin\cmake\win\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -99,9 +99,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\pc\Documents\GitHub\keyboard-project\cmake-build-debug\CMakeFiles C:\Users\pc\Documents\GitHub\keyboard-project\cmake-build-debug\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\LEGION\Documents\GitHub\keyboard-project\cmake-build-debug\CMakeFiles C:\Users\LEGION\Documents\GitHub\keyboard-project\cmake-build-debug\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\pc\Documents\GitHub\keyboard-project\cmake-build-debug\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\LEGION\Documents\GitHub\keyboard-project\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -142,87 +142,6 @@ keyboard_project/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/build
 .PHONY : keyboard_project/fast
 
-AnimatedObject.obj: AnimatedObject.cpp.obj
-
-.PHONY : AnimatedObject.obj
-
-# target to build an object file
-AnimatedObject.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/AnimatedObject.cpp.obj
-.PHONY : AnimatedObject.cpp.obj
-
-AnimatedObject.i: AnimatedObject.cpp.i
-
-.PHONY : AnimatedObject.i
-
-# target to preprocess a source file
-AnimatedObject.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/AnimatedObject.cpp.i
-.PHONY : AnimatedObject.cpp.i
-
-AnimatedObject.s: AnimatedObject.cpp.s
-
-.PHONY : AnimatedObject.s
-
-# target to generate assembly for a file
-AnimatedObject.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/AnimatedObject.cpp.s
-.PHONY : AnimatedObject.cpp.s
-
-Button.obj: Button.cpp.obj
-
-.PHONY : Button.obj
-
-# target to build an object file
-Button.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/Button.cpp.obj
-.PHONY : Button.cpp.obj
-
-Button.i: Button.cpp.i
-
-.PHONY : Button.i
-
-# target to preprocess a source file
-Button.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/Button.cpp.i
-.PHONY : Button.cpp.i
-
-Button.s: Button.cpp.s
-
-.PHONY : Button.s
-
-# target to generate assembly for a file
-Button.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/Button.cpp.s
-.PHONY : Button.cpp.s
-
-Entity.obj: Entity.cpp.obj
-
-.PHONY : Entity.obj
-
-# target to build an object file
-Entity.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/Entity.cpp.obj
-.PHONY : Entity.cpp.obj
-
-Entity.i: Entity.cpp.i
-
-.PHONY : Entity.i
-
-# target to preprocess a source file
-Entity.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/Entity.cpp.i
-.PHONY : Entity.cpp.i
-
-Entity.s: Entity.cpp.s
-
-.PHONY : Entity.s
-
-# target to generate assembly for a file
-Entity.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/Entity.cpp.s
-.PHONY : Entity.cpp.s
-
 Manager.obj: Manager.cpp.obj
 
 .PHONY : Manager.obj
@@ -249,6 +168,33 @@ Manager.s: Manager.cpp.s
 Manager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/Manager.cpp.s
 .PHONY : Manager.cpp.s
+
+Object.obj: Object.cpp.obj
+
+.PHONY : Object.obj
+
+# target to build an object file
+Object.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/Object.cpp.obj
+.PHONY : Object.cpp.obj
+
+Object.i: Object.cpp.i
+
+.PHONY : Object.i
+
+# target to preprocess a source file
+Object.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/Object.cpp.i
+.PHONY : Object.cpp.i
+
+Object.s: Object.cpp.s
+
+.PHONY : Object.s
+
+# target to generate assembly for a file
+Object.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/Object.cpp.s
+.PHONY : Object.cpp.s
 
 TextureLoader.obj: TextureLoader.cpp.obj
 
@@ -304,33 +250,6 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-resources/Entity.obj: resources/Entity.cpp.obj
-
-.PHONY : resources/Entity.obj
-
-# target to build an object file
-resources/Entity.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/resources/Entity.cpp.obj
-.PHONY : resources/Entity.cpp.obj
-
-resources/Entity.i: resources/Entity.cpp.i
-
-.PHONY : resources/Entity.i
-
-# target to preprocess a source file
-resources/Entity.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/resources/Entity.cpp.i
-.PHONY : resources/Entity.cpp.i
-
-resources/Entity.s: resources/Entity.cpp.s
-
-.PHONY : resources/Entity.s
-
-# target to generate assembly for a file
-resources/Entity.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/resources/Entity.cpp.s
-.PHONY : resources/Entity.cpp.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -340,27 +259,18 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... keyboard_project
-	@echo ... AnimatedObject.obj
-	@echo ... AnimatedObject.i
-	@echo ... AnimatedObject.s
-	@echo ... Button.obj
-	@echo ... Button.i
-	@echo ... Button.s
-	@echo ... Entity.obj
-	@echo ... Entity.i
-	@echo ... Entity.s
 	@echo ... Manager.obj
 	@echo ... Manager.i
 	@echo ... Manager.s
+	@echo ... Object.obj
+	@echo ... Object.i
+	@echo ... Object.s
 	@echo ... TextureLoader.obj
 	@echo ... TextureLoader.i
 	@echo ... TextureLoader.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
-	@echo ... resources/Entity.obj
-	@echo ... resources/Entity.i
-	@echo ... resources/Entity.s
 .PHONY : help
 
 

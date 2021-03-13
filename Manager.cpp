@@ -10,11 +10,18 @@
 #include "Manager.h"
 #include "TextureLoader.h"
 
+
 std::mt19937 rng(std::chrono::steady_clock::now().time_since_epoch().count());
+
+
 
 int rnd(int l, int r) { return l + rng() % (r - l + 1); }
 
 SDL_Renderer *Manager::renderer = nullptr;
+int Manager::playerHealth = 100;
+int Manager::debug1 = 0;
+int Manager::debug2 = 0;
+
 
 Manager::Manager() {
     TTF_Init();
@@ -49,6 +56,10 @@ void Manager::InitDictionary() {
     }
 }
 
+std::string Manager::newWord(){
+    return dictionary[rnd(0, dictionary.size() - 1)];
+}
+
 void Manager::Init(const char *title, int x_pos, int y_pos, int width, int height, bool fullscreen) {
     int isFullScreen = fullscreen ? SDL_WINDOW_FULLSCREEN : 0;
     if (!SDL_Init(SDL_INIT_EVERYTHING)) {
@@ -68,67 +79,118 @@ void Manager::HandleGameEvents() {
         case SDL_QUIT:
             isRunning = false;
             break;
+        case SDL_KEYDOWN:
+            switch (event.key.keysym.sym) {
+                case SDLK_UP:
+                    debug1++;
+                    break;
+                case SDLK_DOWN:
+                    debug1--;
+                    break;
+                case SDLK_LEFT:
+                    debug2--;
+                    break;
+                case SDLK_RIGHT:
+                    debug2++;
+                    break;
+            }
         default:
             break;
     }
-    for (auto enemy:enemies)
-        enemy->handleEvent(event);
+    for (auto Word:words)
+        Word->handleEvent(event);
+
 }
 
 void Manager::UpdateGame() {
-    menuBackground->Update();
+    gameBackground->Left(50);
+    if(gameBackground->destR.x + WINDOWSIZEW == 0){
+        gameBackground->destR.x = 0;
+    }
 
-    for(int i=enemies.size()-1;i>=0;--i)
-        if(enemies[i]->typed == enemies[i]->word.size()){
+    //check clearing
+    for(int i=words.size()-1;i>=0;--i)
+        if(words[i]->Complete()){
+            std::swap(words[i],words.back());
+
+            words.pop_back();
+        }
+
+
+    //spawning monster
+    Uint32 currentTime = SDL_GetTicks();
+    if (currentTime >= lastSpawnTime + 1000 ) {
+        enemies.emplace_back();
+
+        //int random = rnd(0,1);
+        //enemies.back() = new Enemy(random, newWord());
+        enemies.back() = new Enemy(enemyKnight, newWord());
+
+        words.emplace_back(enemies.back()->word);
+
+        lastSpawnTime = currentTime;
+    }
+
+    //delete monster
+    for(int i = (int)enemies.size() - 1; i>=0; i--){
+        enemies[i]->Check();
+
+        if(enemies[i]->isDead) {
             std::swap(enemies[i],enemies.back());
             enemies.pop_back();
         }
-
-    if (enemies.empty() || !rnd(0,10000)) {
-        enemies.emplace_back();
-        enemies.back() = new Entity(dictionary[rnd(0, dictionary.size() - 1)]);
-        enemies[enemies.size()-1]->SetAnimation(TextureLoader::GetAnimation("bird-"));
-        enemies[enemies.size()-1]->SetAnimationDelay(120);
     }
+
+    // update texture
     for (auto enemy:enemies) {
         enemy->Update();
     }
+
+    std::cerr<< debug1 <<" "<<debug2 <<"\n";
 }
 
 void Manager::RenderGame() {
     SDL_RenderClear(renderer);
-    menuBackground->Render();
+    gameBackground->Render(0);
     for (auto enemy:enemies)
         enemy->Render();
+    for (auto word:words)
+        word->RenderWord();
     SDL_RenderPresent(renderer);
 }
 
 void Manager::InitMenu() {
-    gameLogo = new Button();
+    gameLogo = new StillFrame();
     gameLogo->SetTexture(TextureLoader::LoadTexture("../resources/game-logo.png"));
     gameLogo->SetDestR(300, -50, 400, 400);
 
-    menuBackground = new AnimatedObject();
+    menuBackground = new Animation();
     menuBackground->SetAnimation(TextureLoader::GetAnimation("menu-background-"));
     menuBackground->SetAnimationDelay(120);
-    menuBackground->SetDestR(0, 0, 1000, 600);
+    menuBackground->SetDestR(0, 0, WINDOWSIZEW, WINDOWSIZEH);
 
-    startButton = new Button();
+    gameBackground = new StillFrame();
+    gameBackground->SetTexture(TextureLoader::LoadTexture("../resources/grassfield.png"));
+    //gameBackground->SetSrcR(0, 0, , );
+    gameBackground->SetDestR(0, 0, WINDOWSIZEW*2, WINDOWSIZEH);
+
+
+    startButton = new StillFrame();
     startButton->SetTexture(TextureLoader::LoadTexture("../resources/menu-button.png"));
     startButton->SetSrcR(0, 0, 625, 125);
     startButton->SetDestR(422, 100 + 250, 156, 31);
 
-    optionsButton = new Button();
+    optionsButton = new StillFrame();
     optionsButton->SetTexture(TextureLoader::LoadTexture("../resources/menu-button.png"));
     optionsButton->SetSrcR(0, 125, 625, 162);
     optionsButton->SetDestR(422, 140 + 250, 156, 40);
 
-    exitButton = new Button();
+    exitButton = new StillFrame();
     exitButton->SetTexture(TextureLoader::LoadTexture("../resources/menu-button.png"));
     exitButton->SetSrcR(0, 287, 625, 125);
     exitButton->SetDestR(422, 180 + 250, 156, 31);
 
-    handPointer = new Button();
+    handPointer = new StillFrame();
     handPointer->SetTexture(TextureLoader::LoadTexture("../resources/hand-pointer.png"));
     //handPointer->SetTexture(TextureLoader::LoadText("lozchinese",25,0));
     handPointer->SetDestR(590, 355, 30, 25);
@@ -180,12 +242,14 @@ void Manager::UpdateMenu() {
         gameLogo->lastUsedTime = currentTime;
     }
     handPointer->destR.y = handPointerPos * 40 + 355;
-    menuBackground->Update();
+    menuBackground->UpdateAnimation();
+
+
 }
 
 void Manager::RenderMenu() {
     SDL_RenderClear(renderer);
-    menuBackground->Render();
+    menuBackground->RenderAnimation();
     gameLogo->Render();
     startButton->Render(1);
     optionsButton->Render(1);

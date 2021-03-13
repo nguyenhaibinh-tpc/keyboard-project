@@ -1,11 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/keyboard_project.dir/AnimatedObject.cpp.obj"
-  "CMakeFiles/keyboard_project.dir/Button.cpp.obj"
-  "CMakeFiles/keyboard_project.dir/Entity.cpp.obj"
   "CMakeFiles/keyboard_project.dir/Manager.cpp.obj"
+  "CMakeFiles/keyboard_project.dir/Object.cpp.obj"
   "CMakeFiles/keyboard_project.dir/TextureLoader.cpp.obj"
   "CMakeFiles/keyboard_project.dir/main.cpp.obj"
-  "CMakeFiles/keyboard_project.dir/resources/Entity.cpp.obj"
   "keyboard_project.exe"
   "keyboard_project.exe.manifest"
   "keyboard_project.pdb"

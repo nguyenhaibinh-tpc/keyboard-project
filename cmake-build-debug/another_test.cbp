@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6"/>
 	<Project>
-		<Option title="keyboard_project"/>
+		<Option title="another_test"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
 		<Option virtualFolders="CMake Files\;"/>
@@ -82,22 +82,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/LEGION/Documents/GitHub/keyboard-project/Button.cpp">
-			<Option target="keyboard_project"/>
-		</Unit>
-		<Unit filename="C:/Users/LEGION/Documents/GitHub/keyboard-project/Button.h">
-			<Option target="keyboard_project"/>
-		</Unit>
-		<Unit filename="C:/Users/LEGION/Documents/GitHub/keyboard-project/Entity.cpp">
-			<Option target="keyboard_project"/>
-		</Unit>
-		<Unit filename="C:/Users/LEGION/Documents/GitHub/keyboard-project/Entity.h">
-			<Option target="keyboard_project"/>
-		</Unit>
 		<Unit filename="C:/Users/LEGION/Documents/GitHub/keyboard-project/Manager.cpp">
 			<Option target="keyboard_project"/>
 		</Unit>
 		<Unit filename="C:/Users/LEGION/Documents/GitHub/keyboard-project/Manager.h">
+			<Option target="keyboard_project"/>
+		</Unit>
+		<Unit filename="C:/Users/LEGION/Documents/GitHub/keyboard-project/Object.cpp">
+			<Option target="keyboard_project"/>
+		</Unit>
+		<Unit filename="C:/Users/LEGION/Documents/GitHub/keyboard-project/Object.h">
 			<Option target="keyboard_project"/>
 		</Unit>
 		<Unit filename="C:/Users/LEGION/Documents/GitHub/keyboard-project/TextureLoader.cpp">
@@ -107,12 +101,6 @@
 			<Option target="keyboard_project"/>
 		</Unit>
 		<Unit filename="C:/Users/LEGION/Documents/GitHub/keyboard-project/main.cpp">
-			<Option target="keyboard_project"/>
-		</Unit>
-		<Unit filename="C:/Users/LEGION/Documents/GitHub/keyboard-project/resources/Entity.cpp">
-			<Option target="keyboard_project"/>
-		</Unit>
-		<Unit filename="C:/Users/LEGION/Documents/GitHub/keyboard-project/resources/Entity.h">
 			<Option target="keyboard_project"/>
 		</Unit>
 		<Unit filename="C:/Users/LEGION/Documents/GitHub/keyboard-project/CMakeLists.txt">

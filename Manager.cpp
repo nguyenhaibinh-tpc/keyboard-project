@@ -30,45 +30,36 @@ Manager::Manager() {
 }
 
 void Manager::InitTexture() {
-    gameLogo = new Textures();
-    gameLogo->SetTexture(TextureLoader::LoadTexture("../resources/game-logo.png"));
+    gameLogo = new Textures(0, "../resources/game-logo.png");
     gameLogo->SetDestR(300, -50, 400, 400);
 
-    menuBackground = new Textures();
-    menuBackground->SetAnimation(TextureLoader::GetAnimation("menu-background-"));
+    menuBackground = new Textures(1, "menu-background-");
     menuBackground->SetAnimationDelay(120);
     menuBackground->SetDestR(0, 0, WINDOWSIZEW, WINDOWSIZEH);
 
-    gameBackgroundSky = new Textures();
-    gameBackgroundSky->SetTexture(TextureLoader::LoadTexture("../resources/game-background-sky.png"));
+    gameBackgroundSky = new Textures(0, "../resources/game-background-sky.png");
     gameBackgroundSky->SetDestR(0, 0, WINDOWSIZEW * 2, WINDOWSIZEH);
 
-    gameBackgroundLand = new Textures();
-    gameBackgroundLand->SetTexture(TextureLoader::LoadTexture("../resources/game-background-land.png"));
+    gameBackgroundLand = new Textures(0, "../resources/game-background-land.png");
     gameBackgroundLand->SetDestR(0, 13, WINDOWSIZEW, 587);
 
-    startButton = new Textures();
-    startButton->SetTexture(TextureLoader::LoadTexture("../resources/menu-button.png"));
+    startButton = new Textures(0, "../resources/menu-button.png");
     startButton->SetSrcR(0, 0, 625, 125);
     startButton->SetDestR(422, 100 + 250, 156, 31);
 
-    optionsButton = new Textures();
-    optionsButton->SetTexture(TextureLoader::LoadTexture("../resources/menu-button.png"));
+    optionsButton = new Textures(0, "../resources/menu-button.png");
     optionsButton->SetSrcR(0, 125, 625, 162);
     optionsButton->SetDestR(422, 140 + 250, 156, 40);
 
-    exitButton = new Textures();
-    exitButton->SetTexture(TextureLoader::LoadTexture("../resources/menu-button.png"));
+    exitButton = new Textures(0, "../resources/menu-button.png");
     exitButton->SetSrcR(0, 287, 625, 125);
     exitButton->SetDestR(422, 180 + 250, 156, 31);
 
-    handPointer = new Textures();
-    handPointer->SetTexture(TextureLoader::LoadTexture("../resources/hand-pointer.png"));
+    handPointer = new Textures(0, "../resources/hand-pointer.png");
     //handPointer->SetTexture(TextureLoader::LoadText("lozchinese",25,0));
     handPointer->SetDestR(590, 355, 30, 25);
 
-    gameOver = new Textures();
-    gameOver->SetTexture(TextureLoader::LoadTexture("../resources/game-over.png"));
+    gameOver = new Textures(0, "../resources/game-over.png");
     //handPointer->SetTexture(TextureLoader::LoadText("lozchinese",25,0));
     gameOver->SetDestR(0, 0, WINDOWSIZEW, WINDOWSIZEH);
 }

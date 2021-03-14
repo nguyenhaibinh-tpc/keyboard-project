@@ -10,6 +10,9 @@
 #include <string>
 #include "SDL2/SDL.h"
 
+class Timer{
+
+};
 class Object{
 public:
 
@@ -37,7 +40,7 @@ class Textures : public Object{
 public:
 
     Textures();
-    Textures(std::string location);
+    Textures(int type, std::string location);
     void SetTexture(SDL_Texture *texture);
     void Render(int state = 0);
 

@@ -113,8 +113,9 @@ void Textures::Render(int state) {
     else SDL_RenderCopy(Manager::renderer, texture, &srcR, &destR);
 }
 
-Textures::Textures(std::string location) {
-    SetTexture(TextureLoader::LoadTexture(location.c_str()));
+Textures::Textures(int type, std::string location) {
+    if(type == 0) SetTexture(TextureLoader::LoadTexture(location.c_str()));
+    else if(type == 1) SetAnimation(TextureLoader::GetAnimation(location.c_str()));
 }
 
 Textures::Textures() {
@@ -246,21 +247,30 @@ Enemy::Enemy(int enemyType) {
 
 void Enemy::StateUpdate() {
     if (enemyType == enemyBird) {
-        if (word->Complete()) state = isDead ;
-        else if (frameCycle.destR.x < PLAYERX) state = isDead, Manager::playerHealth -= damage;
+        if (word->Complete()) state = isDead;
+        else if (frameCycle.destR.x < PLAYERX) {
+            state = isDead;
+            Manager::playerHealth -= damage;
+        }
     }
     if (enemyType == enemyBat) {
-        if (word->Complete()) state = isDead ;
-        else if (frameCycle.destR.x < PLAYERX) state = isDead, Manager::playerHealth -= damage;
+        if (word->Complete()) state = isDead;
+        else if (frameCycle.destR.x < PLAYERX) {
+            state = isDead;
+            Manager::playerHealth -= damage;
+        }
     }
     if (enemyType == enemyKnight) {
         if (word->Complete()) {
             word->isGone = true;
             health--;
 
-            state = knightIdle;
+            stateLocal = knightIdle;
             frameCycle.Wait(3000);
-        } else if (frameCycle.destR.x < PLAYERX) state = isDead, Manager::playerHealth -= damage;
+        } else if (frameCycle.destR.x < PLAYERX) {
+            state = isDead;
+            Manager::playerHealth -= damage;
+        }
 
         if (health == 0) {
             state = isDead;
@@ -285,10 +295,10 @@ void Enemy::FrameUpdate() {
     }
     if (enemyType == enemyKnight) {
 
-        if (state == knightIdle) {
+        if (stateLocal == knightIdle) {
             Uint32 currentTime = SDL_GetTicks();
             if (!frameCycle.isWaiting()) {
-                state = knightRunning;
+                stateLocal = knightRunning;
                 word = new Word(dict.WordLength(3, 4));
                 wordCnt++;
                 word->isGone = false;
@@ -296,7 +306,7 @@ void Enemy::FrameUpdate() {
             //   if(frameCycle.destR.x + frameCycle.destR.w <= WINDOWSIZEW)
             frameCycle.Right(8);
             frameCycle.UpdateAnimation();
-        } else if (state == knightRunning) {
+        } else if (stateLocal == knightRunning) {
             frameCycle.Left(6);
             frameCycle2.destR = frameCycle.destR;
 
@@ -321,8 +331,8 @@ void Enemy::Render() {
 
     }
     if (enemyType == enemyKnight) {
-        if (state == knightIdle) frameCycle.RenderAnimation();
-        else if (state == knightRunning) frameCycle2.RenderAnimation();
+        if (stateLocal == knightIdle) frameCycle.RenderAnimation();
+        else if (stateLocal == knightRunning) frameCycle2.RenderAnimation();
     }
 
     if (wordCnt) word->RenderWord();

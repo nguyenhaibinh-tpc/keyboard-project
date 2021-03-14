@@ -142,6 +142,33 @@ keyboard_project/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/build
 .PHONY : keyboard_project/fast
 
+Dictionary.obj: Dictionary.cpp.obj
+
+.PHONY : Dictionary.obj
+
+# target to build an object file
+Dictionary.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/Dictionary.cpp.obj
+.PHONY : Dictionary.cpp.obj
+
+Dictionary.i: Dictionary.cpp.i
+
+.PHONY : Dictionary.i
+
+# target to preprocess a source file
+Dictionary.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/Dictionary.cpp.i
+.PHONY : Dictionary.cpp.i
+
+Dictionary.s: Dictionary.cpp.s
+
+.PHONY : Dictionary.s
+
+# target to generate assembly for a file
+Dictionary.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\keyboard_project.dir\build.make CMakeFiles/keyboard_project.dir/Dictionary.cpp.s
+.PHONY : Dictionary.cpp.s
+
 Manager.obj: Manager.cpp.obj
 
 .PHONY : Manager.obj
@@ -259,6 +286,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... keyboard_project
+	@echo ... Dictionary.obj
+	@echo ... Dictionary.i
+	@echo ... Dictionary.s
 	@echo ... Manager.obj
 	@echo ... Manager.i
 	@echo ... Manager.s

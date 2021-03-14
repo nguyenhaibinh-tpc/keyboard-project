@@ -16,13 +16,20 @@ public:
 
     void UpDown(int delay, int UpDis, int DownDis,bool UpFirst);
     void Left(int delay);
+    void Right(int delay);
     void SetDestR(int x, int y, int w, int h);
     void SetSrcR(int x, int y, int w, int h);
+    void Wait(int delay);
+    bool isWaiting();
 
     SDL_Rect srcR;
     SDL_Rect destR;
     Uint32 lastMovedTimeX = 0;
     Uint32 lastMovedTimeY = 0;
+
+    Uint32 WaitTime = 0;
+    Uint32 lastWaitTime = 0;
+
 
     int UpMoved = 0;
     int DownMoved = 0;
@@ -57,13 +64,14 @@ public:
 class Word: public Object{
 public:
     Word(std::string word);
-    void handleEvent(SDL_Event event);
+    void HandleEvent(SDL_Event event);
     void Update();
     void RenderWord();
-    bool Complete() const;
+    bool Complete() ;
 
     std::vector<SDL_Texture *> wordTexture;
     int color, typed;
+    bool isGone = 0;
     std::string word = "";
     Uint32 lastMovedTime = 0;
 };
@@ -76,16 +84,21 @@ public:
     bool isDead = 0;
     bool isDamaged = 0;
 
-    Enemy(int enemyType, std::string str);
+    Enemy(int enemyType);
     ~Enemy();
     void Check();
     void Update();
     void Render();
+    void WordFollow();
+    void HandleEvent(SDL_Event event);
     Word* word;
 
     int randVar1;
     int randVar2;
     int randVar3;
+
+    int state;
+    int wordCnt;
 
     Animation frameCycle;
     Animation frameCycle2;

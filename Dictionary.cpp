@@ -1,0 +1,61 @@
+//
+// Created by LEGION on 3/13/2021.
+//
+
+#include <iostream>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+#include "Dictionary.h"
+#include "Manager.h"
+
+Dictionary dict;
+
+void Dictionary::InitDictionary() {
+    if (fopen("../words.txt", "r")) {
+        std::string tmp;
+        std::ifstream cin("../words.txt");
+        while (cin >> tmp) {
+            dictionary.push_back(tmp);
+            if (tmp.size() <= 9) wordlength[tmp.size()].push_back(tmp);
+        }
+        std::sort(dictionary.begin(), dictionary.end(), [](std::string i, std::string j) {
+            return i.size() < j.size();
+        });
+        cin.close();
+    } else {
+        std::cout << "Dictionary data not found!";
+        exit(0);
+    }
+}
+
+std::string Dictionary::WordLength(int u, int v) {
+    int countWord = 0;
+    for (int i = u; i <= v; i++)
+        countWord += wordlength[i].size();
+    int temp = rnd(1, countWord);
+    for (int i = u; i <= v; i++) {
+        if (temp <= wordlength[i].size())
+            return wordlength[i][temp - 1];
+        else temp -= wordlength[i].size();
+    }
+}
+
+std::string Dictionary::LetterWordLength(int letter, int u, int v) {
+    std::string res = "";
+    bool alphabet[30];
+    for (int i = 0; i <= 25; i++) alphabet[i] = 0;
+
+    std::vector<int> letters;
+    while (letters.size() < letter) {
+        int temp = rnd(0, 25);
+        if (alphabet[temp] == 0) alphabet[temp] = 1, letters.push_back(temp);
+    }
+
+    int length = rnd(u, v);
+    for (int i = 1; i <= length; i++) {
+        int temp2 = rnd(1, letter);
+        res += (char) letters[temp2 - 1] + 'a';
+    }
+    return res;
+}

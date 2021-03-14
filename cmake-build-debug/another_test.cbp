@@ -82,6 +82,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/LEGION/Documents/GitHub/keyboard-project/Dictionary.cpp">
+			<Option target="keyboard_project"/>
+		</Unit>
+		<Unit filename="C:/Users/LEGION/Documents/GitHub/keyboard-project/Dictionary.h">
+			<Option target="keyboard_project"/>
+		</Unit>
 		<Unit filename="C:/Users/LEGION/Documents/GitHub/keyboard-project/Manager.cpp">
 			<Option target="keyboard_project"/>
 		</Unit>

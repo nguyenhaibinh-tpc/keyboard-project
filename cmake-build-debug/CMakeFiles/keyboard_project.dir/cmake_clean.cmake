@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/keyboard_project.dir/Dictionary.cpp.obj"
   "CMakeFiles/keyboard_project.dir/Manager.cpp.obj"
   "CMakeFiles/keyboard_project.dir/Object.cpp.obj"
   "CMakeFiles/keyboard_project.dir/TextureLoader.cpp.obj"

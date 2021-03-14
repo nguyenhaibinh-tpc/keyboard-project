@@ -6,10 +6,12 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/LEGION/Documents/GitHub/keyboard-project/Manager.cpp
+C:/Users/LEGION/Documents/GitHub/keyboard-project/Dictionary.h
 iostream
 -
-fstream
+
+C:/Users/LEGION/Documents/GitHub/keyboard-project/Manager.cpp
+iostream
 -
 algorithm
 -
@@ -21,6 +23,8 @@ Manager.h
 C:/Users/LEGION/Documents/GitHub/keyboard-project/Manager.h
 TextureLoader.h
 C:/Users/LEGION/Documents/GitHub/keyboard-project/TextureLoader.h
+Dictionary.h
+C:/Users/LEGION/Documents/GitHub/keyboard-project/Dictionary.h
 
 C:/Users/LEGION/Documents/GitHub/keyboard-project/Manager.h
 SDL2/SDL.h

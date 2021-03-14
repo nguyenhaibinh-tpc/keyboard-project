@@ -5,20 +5,27 @@
 #ifndef KEYBOARD_PROJECT_MANAGER_H
 #define KEYBOARD_PROJECT_MANAGER_H
 
+
 #include "SDL2/SDL.h"
 #include "string"
 #include "Object.h"
 
 
 enum enemyType{enemyBird, enemyBat, enemyKnight};
+enum stateKnight{knightIdle, knightRunning};
 
 const int WINDOWSIZEW = 1000;
 const int WINDOWSIZEH = 600;
 const int MIDDLESCREEN = 300;
-const int PLAYERX = 100;
+const int PLAYERX = 0;
 
 int rnd(int l, int r);
 
+enum gameState{
+    gameMenu,
+    gamePlaying,
+    gameEnded
+};
 //extern int playerHealth = 100;
 class Manager {
 public:
@@ -27,31 +34,25 @@ public:
     ~Manager();
 
     void Init(const char *title, int x_pos, int y_pos, int width, int height, bool fullscreen);
-
     void HandleGameEvents();
-
     void UpdateGame();
-
     void RenderGame();
-
-    void InitMenu();
-
+    void InitTexture();
     void HandleMenuEvents();
-
     void UpdateMenu();
-
     void RenderMenu();
-
+    void HandleEndedEvents();
+    void UpdateEnded();
+    void RenderEnded();
+    void CleanGame();
     void Clean();
-
-    void InitDictionary();
 
     static SDL_Renderer *renderer;
 
 
 //private:
     bool isRunning;
-    bool isAtMenu;
+    int gameState;
     SDL_Window *window;
 
     StillFrame *testButton;
@@ -60,20 +61,13 @@ public:
     StillFrame *optionsButton;
     StillFrame *exitButton;
     StillFrame *handPointer;
+    StillFrame *gameOver;
 
     int handPointerPos = 0;
 
     Animation *menuBackground;
     StillFrame *gameBackground;
 
-    std::vector<std::string> dictionary;
-    std::vector<std::string> effortlessWords;
-    std::vector<std::string> easyWords;
-    std::vector<std::string> normalWords;
-    std::vector<std::string> hardWords;
-    std::vector<std::string> extremeWords;
-
-    std::vector<Word *> words;
     std::vector<Enemy *> enemies;
 
     static int playerHealth;
@@ -81,15 +75,7 @@ public:
     static int debug2 ;
     Uint32 lastSpawnTime = 0;
 
-    bool GetIsRunning() {
-        return isRunning;
-    }
-
-    bool GetIsAtMenu() {
-        return isAtMenu;
-    }
-
-    std::string newWord();
 };
 
+extern Manager *game;
 #endif //KEYBOARD_PROJECT_MANAGER_H

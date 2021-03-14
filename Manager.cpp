@@ -3,22 +3,20 @@
 //
 
 #include <iostream>
-#include <fstream>
 #include <algorithm>
 #include <random>
 #include <chrono>
 #include "Manager.h"
 #include "TextureLoader.h"
+#include "Dictionary.h"
 
 
 std::mt19937 rng(std::chrono::steady_clock::now().time_since_epoch().count());
 
-
-
 int rnd(int l, int r) { return l + rng() % (r - l + 1); }
 
 SDL_Renderer *Manager::renderer = nullptr;
-int Manager::playerHealth = 100;
+int Manager::playerHealth = 50;
 int Manager::debug1 = 0;
 int Manager::debug2 = 0;
 
@@ -26,140 +24,10 @@ int Manager::debug2 = 0;
 Manager::Manager() {
     TTF_Init();
     isRunning = true;
-    isAtMenu = true;
+    gameState = gameMenu;
 }
 
-void Manager::InitDictionary() {
-    if (fopen("../words.txt", "r")) {
-        std::string tmp;
-        std::ifstream cin("../words.txt");
-        while (cin >> tmp) {
-            dictionary.push_back(tmp);
-            if (tmp.size() < 3)
-                effortlessWords.push_back(tmp);
-            else if (tmp.size() < 6)
-                easyWords.push_back(tmp);
-            else if (tmp.size() < 10)
-                normalWords.push_back(tmp);
-            else if (tmp.size() < 14)
-                hardWords.push_back(tmp);
-            else
-                extremeWords.push_back(tmp);
-        }
-        std::sort(dictionary.begin(), dictionary.end(), [](std::string i, std::string j) {
-            return i.size() < j.size();
-        });
-        cin.close();
-    } else {
-        std::cout << "Dictionary data not found!";
-        exit(0);
-    }
-}
-
-std::string Manager::newWord(){
-    return dictionary[rnd(0, dictionary.size() - 1)];
-}
-
-void Manager::Init(const char *title, int x_pos, int y_pos, int width, int height, bool fullscreen) {
-    int isFullScreen = fullscreen ? SDL_WINDOW_FULLSCREEN : 0;
-    if (!SDL_Init(SDL_INIT_EVERYTHING)) {
-        window = SDL_CreateWindow(title, x_pos, y_pos, width, height, isFullScreen);
-        Manager::renderer = SDL_CreateRenderer(window, -1, 0);
-        SDL_SetRenderDrawColor(Manager::renderer, 255, 255, 255, 255);
-    } else {
-        std::cout << "Failed to load SDL!\n";
-        exit(0);
-    }
-}
-
-void Manager::HandleGameEvents() {
-    SDL_Event event;
-    SDL_PollEvent(&event);
-    switch (event.type) {
-        case SDL_QUIT:
-            isRunning = false;
-            break;
-        case SDL_KEYDOWN:
-            switch (event.key.keysym.sym) {
-                case SDLK_UP:
-                    debug1++;
-                    break;
-                case SDLK_DOWN:
-                    debug1--;
-                    break;
-                case SDLK_LEFT:
-                    debug2--;
-                    break;
-                case SDLK_RIGHT:
-                    debug2++;
-                    break;
-            }
-        default:
-            break;
-    }
-    for (auto Word:words)
-        Word->handleEvent(event);
-
-}
-
-void Manager::UpdateGame() {
-    gameBackground->Left(50);
-    if(gameBackground->destR.x + WINDOWSIZEW == 0){
-        gameBackground->destR.x = 0;
-    }
-
-    //check clearing
-    for(int i=words.size()-1;i>=0;--i)
-        if(words[i]->Complete()){
-            std::swap(words[i],words.back());
-
-            words.pop_back();
-        }
-
-
-    //spawning monster
-    Uint32 currentTime = SDL_GetTicks();
-    if (currentTime >= lastSpawnTime + 1000 ) {
-        enemies.emplace_back();
-
-        //int random = rnd(0,1);
-        //enemies.back() = new Enemy(random, newWord());
-        enemies.back() = new Enemy(enemyKnight, newWord());
-
-        words.emplace_back(enemies.back()->word);
-
-        lastSpawnTime = currentTime;
-    }
-
-    //delete monster
-    for(int i = (int)enemies.size() - 1; i>=0; i--){
-        enemies[i]->Check();
-
-        if(enemies[i]->isDead) {
-            std::swap(enemies[i],enemies.back());
-            enemies.pop_back();
-        }
-    }
-
-    // update texture
-    for (auto enemy:enemies) {
-        enemy->Update();
-    }
-
-    std::cerr<< debug1 <<" "<<debug2 <<"\n";
-}
-
-void Manager::RenderGame() {
-    SDL_RenderClear(renderer);
-    gameBackground->Render(0);
-    for (auto enemy:enemies)
-        enemy->Render();
-    for (auto word:words)
-        word->RenderWord();
-    SDL_RenderPresent(renderer);
-}
-
-void Manager::InitMenu() {
+void Manager::InitTexture() {
     gameLogo = new StillFrame();
     gameLogo->SetTexture(TextureLoader::LoadTexture("../resources/game-logo.png"));
     gameLogo->SetDestR(300, -50, 400, 400);
@@ -172,7 +40,7 @@ void Manager::InitMenu() {
     gameBackground = new StillFrame();
     gameBackground->SetTexture(TextureLoader::LoadTexture("../resources/grassfield.png"));
     //gameBackground->SetSrcR(0, 0, , );
-    gameBackground->SetDestR(0, 0, WINDOWSIZEW*2, WINDOWSIZEH);
+    gameBackground->SetDestR(0, 0, WINDOWSIZEW * 2, WINDOWSIZEH);
 
 
     startButton = new StillFrame();
@@ -194,6 +62,23 @@ void Manager::InitMenu() {
     handPointer->SetTexture(TextureLoader::LoadTexture("../resources/hand-pointer.png"));
     //handPointer->SetTexture(TextureLoader::LoadText("lozchinese",25,0));
     handPointer->SetDestR(590, 355, 30, 25);
+
+    gameOver = new StillFrame();
+    gameOver->SetTexture(TextureLoader::LoadTexture("../resources/game-over.png"));
+    //handPointer->SetTexture(TextureLoader::LoadText("lozchinese",25,0));
+    gameOver->SetDestR(0, 0, WINDOWSIZEW, WINDOWSIZEH);
+}
+
+void Manager::Init(const char *title, int x_pos, int y_pos, int width, int height, bool fullscreen) {
+    int isFullScreen = fullscreen ? SDL_WINDOW_FULLSCREEN : 0;
+    if (!SDL_Init(SDL_INIT_EVERYTHING)) {
+        window = SDL_CreateWindow(title, x_pos, y_pos, width, height, isFullScreen);
+        Manager::renderer = SDL_CreateRenderer(window, -1, 0);
+        SDL_SetRenderDrawColor(Manager::renderer, 255, 255, 255, 255);
+    } else {
+        std::cout << "Failed to load SDL!\n";
+        exit(0);
+    }
 }
 
 void Manager::HandleMenuEvents() {
@@ -214,7 +99,7 @@ void Manager::HandleMenuEvents() {
                 case SDLK_RETURN:
                     switch (handPointerPos) {
                         case 0:
-                            isAtMenu = false;
+                            gameState = gamePlaying;
                             break;
                         case 1:
                             break;
@@ -258,8 +143,117 @@ void Manager::RenderMenu() {
     SDL_RenderPresent(renderer);
 }
 
+
+void Manager::HandleGameEvents() {
+    SDL_Event event;
+    SDL_PollEvent(&event);
+    switch (event.type) {
+        case SDL_QUIT:
+            isRunning = false;
+            break;
+        case SDL_KEYDOWN:
+            switch (event.key.keysym.sym) {
+                case SDLK_UP:
+                    debug1++;
+                    break;
+                case SDLK_DOWN:
+                    debug1--;
+                    break;
+                case SDLK_LEFT:
+                    debug2--;
+                    break;
+                case SDLK_RIGHT:
+                    debug2++;
+                    break;
+            }
+        default:
+            break;
+    }
+    for (auto enemy:enemies)
+        enemy->word->HandleEvent(event);
+
+}
+
+void Manager::CleanGame() {
+    gameState = gameMenu;
+    playerHealth = 50;
+    enemies.clear();
+}
+
+void Manager::UpdateGame() {
+    // background
+    gameBackground->Left(50);
+    if (gameBackground->destR.x + WINDOWSIZEW == 0) {
+        gameBackground->destR.x = 0;
+    }
+
+    //spawning monster
+    Uint32 currentTime = SDL_GetTicks();
+    if (currentTime >= lastSpawnTime + 1500 && enemies.size() >= 0 || !rnd(0,2000)) {
+
+        enemies.emplace_back();
+
+        int random = rnd(0, 2);
+        enemies.back() = new Enemy(random);
+        //enemies.back() = new Enemy(enemyBat);
+
+        lastSpawnTime = currentTime;
+    }
+
+
+    //delete monster
+    for (int i = (int) enemies.size() - 1; i >= 0; i--) {
+        enemies[i]->Check();
+
+        if (enemies[i]->isDead) {
+            std::swap(enemies[i], enemies.back());
+            enemies.pop_back();
+        }
+    }
+
+    // update texture
+    for (auto enemy:enemies) {
+        enemy->Update();
+    }
+
+    std::cerr << playerHealth << "\n";
+    //std::cerr<< debug1 <<" "<<debug2 <<"\n";
+
+    if (playerHealth <= 0) {
+        gameState = gameMenu;
+        playerHealth = 50;
+        CleanGame();
+    }
+}
+
+void Manager::RenderGame() {
+    SDL_RenderClear(renderer);
+    gameBackground->Render(0);
+    for (auto enemy:enemies)
+        enemy->Render();
+
+    for (auto enemy:enemies)
+        enemy->word->RenderWord();
+
+    SDL_RenderPresent(renderer);
+}
+
 void Manager::Clean() {
     TTF_Quit();
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
+}
+
+void Manager::RenderEnded() {
+    SDL_RenderClear(renderer);
+    gameBackground->Render(0);
+    for (auto enemy:enemies)
+        enemy->Render();
+
+    for (auto enemy:enemies)
+        enemy->word->RenderWord();
+
+    gameOver->Render();
+
+    SDL_RenderPresent(renderer);
 }

@@ -30,13 +30,18 @@ SDL_Texture *TextureLoader::LoadTexture(const char *fileName) {
 
 std::vector<SDL_Texture *> TextureLoader::GetAnimation(const std::string name) {
     std::vector<SDL_Texture *> ret;
-    if (!fopen(("../resources/" + name + std::to_string(0) + ".png").c_str(), "r")) {
+    auto file = fopen(("../resources/" + name + std::to_string(0) + ".png").c_str(), "r");
+    if (!file) {
         std::cout << "Cannot open file " << "../resources/" + name + std::to_string(0) + ".png" << "\n";
         exit(0);
     }
-    for (int i = 0; fopen(("../resources/" + name + std::to_string(i) + ".png").c_str(), "r"); ++i)
+
+    for (int i = 0; file; ++i) {
         ret.push_back(TextureLoader::LoadTexture(("../resources/" + name + std::to_string(i) + ".png").c_str()));
-    std::cout << "Loaded successfully\n";
+        fclose(file);
+        file = fopen(("../resources/" + name + std::to_string(i + 1) + ".png").c_str(), "r");
+    }
+    fclose(file);
     return ret;
 }
 

@@ -114,8 +114,8 @@ void Textures::Render(int state) {
 }
 
 Textures::Textures(int type, std::string location) {
-    if(type == 0) SetTexture(TextureLoader::LoadTexture(location.c_str()));
-    else if(type == 1) SetAnimation(TextureLoader::GetAnimation(location.c_str()));
+    if (type == 0) SetTexture(TextureLoader::LoadTexture(location.c_str()));
+    else if (type == 1) SetAnimation(TextureLoader::GetAnimation(location.c_str()));
 }
 
 Textures::Textures() {
@@ -166,16 +166,16 @@ bool Word::Complete() {
 }
 
 
-#define BIRDSIZEW 120
-#define BIRDSIZEH 100
+#define BIRDSIZEW 80
+#define BIRDSIZEH 64
 
-#define BATSIZEW 100
-#define BATSIZEH 80
+#define BATSIZEW 60
+#define BATSIZEH 46
 
-#define KNIGHTSIZEW 298
-#define KNIGHTSIZEH 152
+#define KNIGHTSIZEW 200
+#define KNIGHTSIZEH 95
 
-#define GRASSFIELD (200+rnd(0,300))
+#define GRASSFIELD (200+rnd(0,200))
 
 void Enemy::WordFollow() {
     if (enemyType == enemyBird) {
@@ -191,7 +191,6 @@ void Enemy::WordFollow() {
                        frameCycle.destR.y + 20, FONTSIZEW, FONTSIZEH);
     }
 }
-
 
 
 Enemy::Enemy(int enemyType) {
@@ -232,7 +231,7 @@ Enemy::Enemy(int enemyType) {
         word = new Word(dict.WordLength(3, 4));
         health = 3;
         damage = 10;
-        state = knightRunning;
+        stateLocal = knightRunning;
 
         frameCycle.SetDestR(WINDOWSIZEW, GRASSFIELD, KNIGHTSIZEW, KNIGHTSIZEH);
         frameCycle2.destR = frameCycle.destR;
@@ -328,7 +327,6 @@ void Enemy::Render() {
     }
     if (enemyType == enemyBat) {
         frameCycle.RenderAnimation();
-
     }
     if (enemyType == enemyKnight) {
         if (stateLocal == knightIdle) frameCycle.RenderAnimation();

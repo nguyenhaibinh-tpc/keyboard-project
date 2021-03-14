@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/LEGION/Documents/GitHub/keyboard-project/Dictionary.cpp" "C:/Users/LEGION/Documents/GitHub/keyboard-project/cmake-build-debug/CMakeFiles/keyboard_project.dir/Dictionary.cpp.obj"
-  "C:/Users/LEGION/Documents/GitHub/keyboard-project/Manager.cpp" "C:/Users/LEGION/Documents/GitHub/keyboard-project/cmake-build-debug/CMakeFiles/keyboard_project.dir/Manager.cpp.obj"
-  "C:/Users/LEGION/Documents/GitHub/keyboard-project/Object.cpp" "C:/Users/LEGION/Documents/GitHub/keyboard-project/cmake-build-debug/CMakeFiles/keyboard_project.dir/Object.cpp.obj"
-  "C:/Users/LEGION/Documents/GitHub/keyboard-project/TextureLoader.cpp" "C:/Users/LEGION/Documents/GitHub/keyboard-project/cmake-build-debug/CMakeFiles/keyboard_project.dir/TextureLoader.cpp.obj"
-  "C:/Users/LEGION/Documents/GitHub/keyboard-project/main.cpp" "C:/Users/LEGION/Documents/GitHub/keyboard-project/cmake-build-debug/CMakeFiles/keyboard_project.dir/main.cpp.obj"
+  "C:/Users/pc/Documents/GitHub/keyboard-project/Dictionary.cpp" "C:/Users/pc/Documents/GitHub/keyboard-project/cmake-build-debug/CMakeFiles/keyboard_project.dir/Dictionary.cpp.obj"
+  "C:/Users/pc/Documents/GitHub/keyboard-project/Manager.cpp" "C:/Users/pc/Documents/GitHub/keyboard-project/cmake-build-debug/CMakeFiles/keyboard_project.dir/Manager.cpp.obj"
+  "C:/Users/pc/Documents/GitHub/keyboard-project/Object.cpp" "C:/Users/pc/Documents/GitHub/keyboard-project/cmake-build-debug/CMakeFiles/keyboard_project.dir/Object.cpp.obj"
+  "C:/Users/pc/Documents/GitHub/keyboard-project/TextureLoader.cpp" "C:/Users/pc/Documents/GitHub/keyboard-project/cmake-build-debug/CMakeFiles/keyboard_project.dir/TextureLoader.cpp.obj"
+  "C:/Users/pc/Documents/GitHub/keyboard-project/main.cpp" "C:/Users/pc/Documents/GitHub/keyboard-project/cmake-build-debug/CMakeFiles/keyboard_project.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

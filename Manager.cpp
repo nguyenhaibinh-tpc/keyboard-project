@@ -39,7 +39,7 @@ void Manager::InitTexture() {
     menuBackground->SetDestR(0, 0, WINDOWSIZEW, WINDOWSIZEH);
 
     gameBackgroundSky = new Textures(0, "../resources/game-background-sky.png");
-    gameBackgroundSky->SetDestR(0, 0, WINDOWSIZEW * 2, WINDOWSIZEH);
+    gameBackgroundSky->SetDestR(-WINDOWSIZEW, 0, WINDOWSIZEW * 2, WINDOWSIZEH);
 
     gameBackgroundLand = new Textures(0, "../resources/game-background-land.png");
     gameBackgroundLand->SetDestR(0, 13, WINDOWSIZEW, 587);
@@ -180,16 +180,16 @@ void Manager::HandleGameEvents() {
 
 void Manager::CleanGame() {
     gameState = gameMenu;
-    playerHealth = 50;
+    playerHealth = 100;
     enemies.clear();
     whiteBar->SetDestR(24, 555, 232, 12);
 }
 
 void Manager::UpdateGame() {
     // background
-    gameBackgroundSky->Left(50);
-    if (gameBackgroundSky->destR.x + WINDOWSIZEW == 0) {
-        gameBackgroundSky->destR.x = 0;
+    gameBackgroundSky->Right(30);
+    if (gameBackgroundSky->destR.x == 0) {
+        gameBackgroundSky->destR.x = -WINDOWSIZEW;
     }
 
     //spawning monster
@@ -198,9 +198,10 @@ void Manager::UpdateGame() {
 
         enemies.emplace_back();
 
-        int random = rnd(0, 2);
+        //int random = rnd(0, 2);
+        int random = !rnd(0,5)?2 : rnd(0,1);
         enemies.back() = new Enemy(random);
-        //enemies.back() = new Enemy(enemyBat);
+        //enemies.back() = new Enemy(enemyKnight);
 
         lastSpawnTime = currentTime;
     }
@@ -230,7 +231,7 @@ void Manager::UpdateGame() {
                        (maxHealth - playerHealth) * 232 / maxHealth, 12);
     //std::cerr << whiteBar->destR.y << " " << whiteBar->destR.w << "\n";
     //std::cerr << (maxHealth - playerHealth) * 232 / playerHealth << "\n";
-    std::cerr << maxHealth << " " << playerHealth << "\n";
+    //std::cerr << maxHealth << " " << playerHealth << "\n";
 
     if (playerHealth <= 0) {
         CleanGame();
@@ -246,10 +247,10 @@ void Manager::RenderGame() {
     gameBackgroundSky->Render();
     gameBackgroundLand->Render();
 
-
+    //std::cerr<<"A";
     for (auto enemy:enemies)
         enemy->Render();
-
+    //std::cerr<<"B\n";
     for (auto enemy:enemies)
         enemy->word->RenderWord();
 

@@ -41,7 +41,8 @@ std::vector<SDL_KeyCode> Dictionary::typeList = {
 };
 
 void Dictionary::InitDictionary() {
-    if (fopen("../words.txt", "r")) {
+    auto file = fopen("../words.txt", "r");
+    if (file) {
         std::string tmp;
         std::ifstream cin("../words.txt");
         while (cin >> tmp) {
@@ -56,6 +57,7 @@ void Dictionary::InitDictionary() {
         std::cout << "Dictionary data not found!";
         exit(0);
     }
+    fclose(file);
 }
 
 std::string Dictionary::WordLength(int u, int v) {

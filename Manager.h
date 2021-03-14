@@ -10,9 +10,25 @@
 #include "string"
 #include "Object.h"
 
+enum enemyType{
+    enemyBird,
+    enemyBat,
+    enemyKnight
+};
+enum stateEnemy{
+    isDead,
+    isAlive,
+};
+enum stateEnemyLocal{
+    knightIdle,
+    knightRunning
+};
 
-enum enemyType{enemyBird, enemyBat, enemyKnight};
-enum stateKnight{knightIdle, knightRunning};
+enum gameState{
+    gameMenu,
+    gamePlaying,
+    gameEnded
+};
 
 const int WINDOWSIZEW = 1000;
 const int WINDOWSIZEH = 600;
@@ -21,12 +37,6 @@ const int PLAYERX = 0;
 
 int rnd(int l, int r);
 
-enum gameState{
-    gameMenu,
-    gamePlaying,
-    gameEnded
-};
-//extern int playerHealth = 100;
 class Manager {
 public:
     Manager();
@@ -55,24 +65,25 @@ public:
     int gameState;
     SDL_Window *window;
 
-    StillFrame *testButton;
-    StillFrame *gameLogo;
-    StillFrame *startButton;
-    StillFrame *optionsButton;
-    StillFrame *exitButton;
-    StillFrame *handPointer;
-    StillFrame *gameOver;
+    Textures *testButton;
+    Textures *gameLogo;
+    Textures *startButton;
+    Textures *optionsButton;
+    Textures *exitButton;
+    Textures *handPointer;
+    Textures *gameOver;
 
     int handPointerPos = 0;
 
-    Animation *menuBackground;
-    StillFrame *gameBackground;
+    Textures *menuBackground;
+    Textures *gameBackgroundSky;
+    Textures *gameBackgroundLand;
 
     std::vector<Enemy *> enemies;
 
     static int playerHealth;
-    static int debug1 ;
-    static int debug2 ;
+    static int debug1;
+    static int debug2;
     Uint32 lastSpawnTime = 0;
 
 };

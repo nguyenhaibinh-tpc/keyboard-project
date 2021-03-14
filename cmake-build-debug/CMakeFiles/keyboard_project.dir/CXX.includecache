@@ -9,22 +9,8 @@
 C:/Users/LEGION/Documents/GitHub/keyboard-project/Dictionary.h
 iostream
 -
-
-C:/Users/LEGION/Documents/GitHub/keyboard-project/Manager.cpp
-iostream
--
-algorithm
--
-random
--
-chrono
--
-Manager.h
-C:/Users/LEGION/Documents/GitHub/keyboard-project/Manager.h
 TextureLoader.h
 C:/Users/LEGION/Documents/GitHub/keyboard-project/TextureLoader.h
-Dictionary.h
-C:/Users/LEGION/Documents/GitHub/keyboard-project/Dictionary.h
 
 C:/Users/LEGION/Documents/GitHub/keyboard-project/Manager.h
 SDL2/SDL.h
@@ -33,6 +19,20 @@ string
 C:/Users/LEGION/Documents/GitHub/keyboard-project/string
 Object.h
 C:/Users/LEGION/Documents/GitHub/keyboard-project/Object.h
+
+C:/Users/LEGION/Documents/GitHub/keyboard-project/Object.cpp
+vector
+-
+iostream
+-
+Object.h
+C:/Users/LEGION/Documents/GitHub/keyboard-project/Object.h
+TextureLoader.h
+C:/Users/LEGION/Documents/GitHub/keyboard-project/TextureLoader.h
+Dictionary.h
+C:/Users/LEGION/Documents/GitHub/keyboard-project/Dictionary.h
+Manager.h
+C:/Users/LEGION/Documents/GitHub/keyboard-project/Manager.h
 
 C:/Users/LEGION/Documents/GitHub/keyboard-project/Object.h
 vector

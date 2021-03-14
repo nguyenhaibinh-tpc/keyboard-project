@@ -10,7 +10,6 @@
 #include <string>
 #include "SDL2/SDL.h"
 
-
 class Object{
 public:
 
@@ -34,27 +33,29 @@ public:
     int UpMoved = 0;
     int DownMoved = 0;
 };
-class Animation : public Object{
+class Textures : public Object{
 public:
+
+    Textures();
+    Textures(std::string location);
+    void SetTexture(SDL_Texture *texture);
+    void Render(int state = 0);
+
     void RenderAnimation();
     void UpdateAnimation();
     void SetAnimation(std::vector<SDL_Texture *> animation);
     void SetAnimationDelay(Uint32 delay);
 
-    std::vector<SDL_Texture *> animation;
-    SDL_Texture *objTexture;
-
+    // animation
     Uint32 animationDelay;
     Uint32 lastAnimationTime = 0;
     int currentAnimation = 0;
-};
-class StillFrame : public Object{
-public:
-    void SetTexture(SDL_Texture *texture);
-    void Render(int state = 0);
 
+    //texture container
+    std::vector<SDL_Texture *> animation;
     SDL_Texture *texture;
 
+    // indicator
     Button(bool active);
     Uint32 lastUsedTime;
     bool isActive;
@@ -78,30 +79,29 @@ public:
 
 class Enemy{
 public:
-    int enemyType;
-    int health;
-    int damage;
-    bool isDead = 0;
-    bool isDamaged = 0;
-
     Enemy(int enemyType);
     ~Enemy();
-    void Check();
-    void Update();
+    bool Disappear();
+    void StateUpdate();
+    void FrameUpdate();
     void Render();
     void WordFollow();
     void HandleEvent(SDL_Event event);
     Word* word;
 
+    int enemyType;
+    int health;
+    int damage;
+    int state;
+    int stateLocal;
+    int wordCnt;
+
+    Textures frameCycle;
+    Textures frameCycle2;
+
     int randVar1;
     int randVar2;
     int randVar3;
-
-    int state;
-    int wordCnt;
-
-    Animation frameCycle;
-    Animation frameCycle2;
 };
 
 

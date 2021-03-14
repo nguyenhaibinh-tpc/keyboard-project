@@ -5,6 +5,7 @@ CMakeFiles/keyboard_project.dir/Dictionary.cpp.obj: ../Dictionary.cpp
 CMakeFiles/keyboard_project.dir/Dictionary.cpp.obj: ../Dictionary.h
 CMakeFiles/keyboard_project.dir/Dictionary.cpp.obj: ../Manager.h
 CMakeFiles/keyboard_project.dir/Dictionary.cpp.obj: ../Object.h
+CMakeFiles/keyboard_project.dir/Dictionary.cpp.obj: ../TextureLoader.h
 
 CMakeFiles/keyboard_project.dir/Manager.cpp.obj: ../Dictionary.h
 CMakeFiles/keyboard_project.dir/Manager.cpp.obj: ../Manager.cpp
@@ -26,5 +27,6 @@ CMakeFiles/keyboard_project.dir/TextureLoader.cpp.obj: ../TextureLoader.h
 CMakeFiles/keyboard_project.dir/main.cpp.obj: ../Dictionary.h
 CMakeFiles/keyboard_project.dir/main.cpp.obj: ../Manager.h
 CMakeFiles/keyboard_project.dir/main.cpp.obj: ../Object.h
+CMakeFiles/keyboard_project.dir/main.cpp.obj: ../TextureLoader.h
 CMakeFiles/keyboard_project.dir/main.cpp.obj: ../main.cpp
 

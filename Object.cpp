@@ -6,41 +6,12 @@
 #include <iostream>
 #include "Object.h"
 #include "TextureLoader.h"
-#include "Manager.h"
 #include "Dictionary.h"
+#include "Manager.h"
 
 #define FONTSIZEH 22
 #define FONTSIZEW 19
 #define FONTSPACE FONTSIZEW
-
-std::vector<SDL_KeyCode> typeList = {
-        SDLK_a,
-        SDLK_b,
-        SDLK_c,
-        SDLK_d,
-        SDLK_e,
-        SDLK_f,
-        SDLK_g,
-        SDLK_h,
-        SDLK_i,
-        SDLK_j,
-        SDLK_k,
-        SDLK_l,
-        SDLK_m,
-        SDLK_n,
-        SDLK_o,
-        SDLK_p,
-        SDLK_q,
-        SDLK_r,
-        SDLK_s,
-        SDLK_t,
-        SDLK_u,
-        SDLK_v,
-        SDLK_w,
-        SDLK_x,
-        SDLK_y,
-        SDLK_z
-};
 
 void Object::SetDestR(int x, int y, int w, int h) {
     destR.x = x;
@@ -112,34 +83,42 @@ bool Object::isWaiting() {
 }
 
 
-void Animation::SetAnimation(std::vector<SDL_Texture *> animation) {
-    Animation::animation = animation;
+void Textures::SetAnimation(std::vector<SDL_Texture *> animation) {
+    Textures::animation = animation;
 }
 
-void Animation::RenderAnimation() {
-    SDL_RenderCopy(Manager::renderer, objTexture, nullptr, &destR);
+void Textures::RenderAnimation() {
+    SDL_RenderCopy(Manager::renderer, texture, nullptr, &destR);
 }
 
-void Animation::UpdateAnimation() {
+void Textures::UpdateAnimation() {
     Uint32 currentTime = SDL_GetTicks();
     if (currentTime >= lastAnimationTime + animationDelay) {
-        objTexture = animation[currentAnimation];
+        texture = animation[currentAnimation];
         currentAnimation = (currentAnimation + 1) % animation.size();
         lastAnimationTime = currentTime;
     }
 }
 
-void Animation::SetAnimationDelay(Uint32 delay) {
+void Textures::SetAnimationDelay(Uint32 delay) {
     animationDelay = delay;
 }
 
-void StillFrame::SetTexture(SDL_Texture *texture) {
-    StillFrame::texture = texture;
+void Textures::SetTexture(SDL_Texture *texture) {
+    Textures::texture = texture;
 }
 
-void StillFrame::Render(int state) {
+void Textures::Render(int state) {
     if (state == 0) SDL_RenderCopy(Manager::renderer, texture, nullptr, &destR);
     else SDL_RenderCopy(Manager::renderer, texture, &srcR, &destR);
+}
+
+Textures::Textures(std::string location) {
+    SetTexture(TextureLoader::LoadTexture(location.c_str()));
+}
+
+Textures::Textures() {
+
 }
 
 Word::Word(std::string str) {
@@ -159,7 +138,7 @@ Word::Word(std::string str) {
 void Word::HandleEvent(SDL_Event event) {
     switch (event.type) {
         case SDL_KEYDOWN:
-            if (typed < word.size() && event.key.keysym.sym == typeList[word[typed] - 'a']) {
+            if (typed < word.size() && event.key.keysym.sym == dict.typeList[word[typed] - 'a']) {
                 std::string go = "";
                 go += Word::word[typed];
                 wordTexture[typed] = TextureLoader::LoadText(go, 24, color);
@@ -212,9 +191,13 @@ void Enemy::WordFollow() {
     }
 }
 
+
+
 Enemy::Enemy(int enemyType) {
+
     Enemy::enemyType = enemyType;
 
+    state = isAlive;
     if (enemyType == enemyBird) {
         randVar1 = rnd(10, 20);
         randVar2 = rnd(10, 20);
@@ -233,6 +216,7 @@ Enemy::Enemy(int enemyType) {
         randVar2 = rnd(50, 70);
         randVar3 = rnd(0, 1);
 
+        state = isAlive;
         wordCnt = 1;
         word = new Word(dict.WordLength(1, 1));
         damage = 3;
@@ -244,8 +228,8 @@ Enemy::Enemy(int enemyType) {
     } else if (enemyType == enemyKnight) {
 
         wordCnt = 1;
-        word = new Word(dict.WordLength(7, 7));
-        health = 2;
+        word = new Word(dict.WordLength(3, 4));
+        health = 3;
         damage = 10;
         state = knightRunning;
 
@@ -260,32 +244,31 @@ Enemy::Enemy(int enemyType) {
 
 }
 
-void Enemy::Check() {
+void Enemy::StateUpdate() {
     if (enemyType == enemyBird) {
-        if (word->Complete()) isDead = true;
-        else if (frameCycle.destR.x < PLAYERX) isDead = true, Manager::playerHealth -= damage;
+        if (word->Complete()) state = isDead ;
+        else if (frameCycle.destR.x < PLAYERX) state = isDead, Manager::playerHealth -= damage;
     }
     if (enemyType == enemyBat) {
-        if (word->Complete()) isDead = true;
-        else if (frameCycle.destR.x < PLAYERX) isDead = true, Manager::playerHealth -= damage;
+        if (word->Complete()) state = isDead ;
+        else if (frameCycle.destR.x < PLAYERX) state = isDead, Manager::playerHealth -= damage;
     }
     if (enemyType == enemyKnight) {
         if (word->Complete()) {
             word->isGone = true;
-            wordCnt--;
             health--;
-            state = knightIdle;
-            frameCycle.Wait(2000);
-        } else if (frameCycle.destR.x < PLAYERX) isDead = true, Manager::playerHealth -= damage;
 
+            state = knightIdle;
+            frameCycle.Wait(3000);
+        } else if (frameCycle.destR.x < PLAYERX) state = isDead, Manager::playerHealth -= damage;
 
         if (health == 0) {
-            isDead = true;
+            state = isDead;
         }
     }
 }
 
-void Enemy::Update() {
+void Enemy::FrameUpdate() {
     if (enemyType == enemyBird) {
 
         frameCycle.UpDown(10, randVar1, randVar2, randVar3);
@@ -306,7 +289,7 @@ void Enemy::Update() {
             Uint32 currentTime = SDL_GetTicks();
             if (!frameCycle.isWaiting()) {
                 state = knightRunning;
-                word = new Word(dict.WordLength(7, 7));
+                word = new Word(dict.WordLength(3, 4));
                 wordCnt++;
                 word->isGone = false;
             }
@@ -328,6 +311,8 @@ void Enemy::Update() {
 }
 
 void Enemy::Render() {
+
+    //std::cerr << "enemy render " << frameCycle.destR.x << " " << frameCycle.destR.y << "\n";
     if (enemyType == enemyBird) {
         frameCycle.RenderAnimation();
     }

@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <random>
 #include <chrono>
+#include <limits.h>
 #include "Manager.h"
 #include "TextureLoader.h"
 #include "Dictionary.h"
@@ -16,7 +17,7 @@ std::mt19937 rng(std::chrono::steady_clock::now().time_since_epoch().count());
 int rnd(int l, int r) { return l + rng() % (r - l + 1); }
 
 SDL_Renderer *Manager::renderer = nullptr;
-int Manager::playerHealth = 50;
+int Manager::playerHealth;
 int Manager::debug1 = 0;
 int Manager::debug2 = 0;
 
@@ -25,45 +26,48 @@ Manager::Manager() {
     TTF_Init();
     isRunning = true;
     gameState = gameMenu;
+    playerHealth = INT_MAX;
 }
 
 void Manager::InitTexture() {
-    gameLogo = new StillFrame();
+    gameLogo = new Textures();
     gameLogo->SetTexture(TextureLoader::LoadTexture("../resources/game-logo.png"));
     gameLogo->SetDestR(300, -50, 400, 400);
 
-    menuBackground = new Animation();
+    menuBackground = new Textures();
     menuBackground->SetAnimation(TextureLoader::GetAnimation("menu-background-"));
     menuBackground->SetAnimationDelay(120);
     menuBackground->SetDestR(0, 0, WINDOWSIZEW, WINDOWSIZEH);
 
-    gameBackground = new StillFrame();
-    gameBackground->SetTexture(TextureLoader::LoadTexture("../resources/grassfield.png"));
-    //gameBackground->SetSrcR(0, 0, , );
-    gameBackground->SetDestR(0, 0, WINDOWSIZEW * 2, WINDOWSIZEH);
+    gameBackgroundSky = new Textures();
+    gameBackgroundSky->SetTexture(TextureLoader::LoadTexture("../resources/game-background-sky.png"));
+    gameBackgroundSky->SetDestR(0, 0, WINDOWSIZEW * 2, WINDOWSIZEH);
 
+    gameBackgroundLand = new Textures();
+    gameBackgroundLand->SetTexture(TextureLoader::LoadTexture("../resources/game-background-land.png"));
+    gameBackgroundLand->SetDestR(0, 13, WINDOWSIZEW, 587);
 
-    startButton = new StillFrame();
+    startButton = new Textures();
     startButton->SetTexture(TextureLoader::LoadTexture("../resources/menu-button.png"));
     startButton->SetSrcR(0, 0, 625, 125);
     startButton->SetDestR(422, 100 + 250, 156, 31);
 
-    optionsButton = new StillFrame();
+    optionsButton = new Textures();
     optionsButton->SetTexture(TextureLoader::LoadTexture("../resources/menu-button.png"));
     optionsButton->SetSrcR(0, 125, 625, 162);
     optionsButton->SetDestR(422, 140 + 250, 156, 40);
 
-    exitButton = new StillFrame();
+    exitButton = new Textures();
     exitButton->SetTexture(TextureLoader::LoadTexture("../resources/menu-button.png"));
     exitButton->SetSrcR(0, 287, 625, 125);
     exitButton->SetDestR(422, 180 + 250, 156, 31);
 
-    handPointer = new StillFrame();
+    handPointer = new Textures();
     handPointer->SetTexture(TextureLoader::LoadTexture("../resources/hand-pointer.png"));
     //handPointer->SetTexture(TextureLoader::LoadText("lozchinese",25,0));
     handPointer->SetDestR(590, 355, 30, 25);
 
-    gameOver = new StillFrame();
+    gameOver = new Textures();
     gameOver->SetTexture(TextureLoader::LoadTexture("../resources/game-over.png"));
     //handPointer->SetTexture(TextureLoader::LoadText("lozchinese",25,0));
     gameOver->SetDestR(0, 0, WINDOWSIZEW, WINDOWSIZEH);
@@ -182,9 +186,9 @@ void Manager::CleanGame() {
 
 void Manager::UpdateGame() {
     // background
-    gameBackground->Left(50);
-    if (gameBackground->destR.x + WINDOWSIZEW == 0) {
-        gameBackground->destR.x = 0;
+    gameBackgroundSky->Left(50);
+    if (gameBackgroundSky->destR.x + WINDOWSIZEW == 0) {
+        gameBackgroundSky->destR.x = 0;
     }
 
     //spawning monster
@@ -203,20 +207,17 @@ void Manager::UpdateGame() {
 
     //delete monster
     for (int i = (int) enemies.size() - 1; i >= 0; i--) {
-        enemies[i]->Check();
+        enemies[i]->StateUpdate();
 
-        if (enemies[i]->isDead) {
+        if (enemies[i]->state == isDead) {
             std::swap(enemies[i], enemies.back());
             enemies.pop_back();
         }
     }
 
-    // update texture
-    for (auto enemy:enemies) {
-        enemy->Update();
-    }
+    for(auto enemy : enemies) enemy->FrameUpdate();
 
-    std::cerr << playerHealth << "\n";
+        //std::cerr << playerHealth << "\n";
     //std::cerr<< debug1 <<" "<<debug2 <<"\n";
 
     if (playerHealth <= 0) {
@@ -224,11 +225,18 @@ void Manager::UpdateGame() {
         playerHealth = 50;
         CleanGame();
     }
+
+    //std::cerr << debug1 << " " <<debug2 <<"\n";
 }
 
 void Manager::RenderGame() {
     SDL_RenderClear(renderer);
-    gameBackground->Render(0);
+
+    // background
+    gameBackgroundSky->Render();
+    gameBackgroundLand->Render();
+
+
     for (auto enemy:enemies)
         enemy->Render();
 
@@ -246,14 +254,14 @@ void Manager::Clean() {
 
 void Manager::RenderEnded() {
     SDL_RenderClear(renderer);
-    gameBackground->Render(0);
+    /*gameBackground->Render(0);
     for (auto enemy:enemies)
         enemy->Render();
 
     for (auto enemy:enemies)
         enemy->word->RenderWord();
 
-    gameOver->Render();
+    gameOver->Render();*/
 
     SDL_RenderPresent(renderer);
 }

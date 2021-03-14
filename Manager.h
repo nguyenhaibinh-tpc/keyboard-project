@@ -79,9 +79,13 @@ public:
     Textures *gameBackgroundSky;
     Textures *gameBackgroundLand;
 
+    Textures *healthBar;
+    Textures *whiteBar;
+
     std::vector<Enemy *> enemies;
 
     static int playerHealth;
+    static int maxHealth;
     static int debug1;
     static int debug2;
     Uint32 lastSpawnTime = 0;

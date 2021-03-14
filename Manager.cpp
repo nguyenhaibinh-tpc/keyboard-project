@@ -18,6 +18,7 @@ int rnd(int l, int r) { return l + rng() % (r - l + 1); }
 
 SDL_Renderer *Manager::renderer = nullptr;
 int Manager::playerHealth;
+int Manager::maxHealth;
 int Manager::debug1 = 0;
 int Manager::debug2 = 0;
 
@@ -25,8 +26,8 @@ int Manager::debug2 = 0;
 Manager::Manager() {
     TTF_Init();
     isRunning = true;
-    gameState = gameMenu;
-    playerHealth = INT_MAX;
+    gameState = gamePlaying;
+    playerHealth = maxHealth = 100;
 }
 
 void Manager::InitTexture() {
@@ -71,6 +72,14 @@ void Manager::InitTexture() {
     gameOver->SetTexture(TextureLoader::LoadTexture("../resources/game-over.png"));
     //handPointer->SetTexture(TextureLoader::LoadText("lozchinese",25,0));
     gameOver->SetDestR(0, 0, WINDOWSIZEW, WINDOWSIZEH);
+
+    healthBar = new Textures();
+    healthBar->SetTexture(TextureLoader::LoadTexture("../resources/health-bar.png"));
+    healthBar->SetDestR(20, 550, 240, 40);
+
+    whiteBar = new Textures();
+    whiteBar->SetTexture(TextureLoader::LoadTexture("../resources/white.png"));
+    whiteBar->SetDestR(24, 555, 232, 12);
 }
 
 void Manager::Init(const char *title, int x_pos, int y_pos, int width, int height, bool fullscreen) {
@@ -182,6 +191,7 @@ void Manager::CleanGame() {
     gameState = gameMenu;
     playerHealth = 50;
     enemies.clear();
+    whiteBar->SetDestR(24, 555, 232, 12);
 }
 
 void Manager::UpdateGame() {
@@ -193,7 +203,7 @@ void Manager::UpdateGame() {
 
     //spawning monster
     Uint32 currentTime = SDL_GetTicks();
-    if (currentTime >= lastSpawnTime + 1500 && enemies.size() >= 0 || !rnd(0,2000)) {
+    if (currentTime >= lastSpawnTime + 1500 && enemies.size() >= 0 || !rnd(0, 2000)) {
 
         enemies.emplace_back();
 
@@ -215,14 +225,23 @@ void Manager::UpdateGame() {
         }
     }
 
-    for(auto enemy : enemies) enemy->FrameUpdate();
+    for (auto enemy : enemies) enemy->FrameUpdate();
 
-        //std::cerr << playerHealth << "\n";
+    //std::cerr << playerHealth << "\n";
     //std::cerr<< debug1 <<" "<<debug2 <<"\n";
 
+    //whiteBar->SetDestR(24, 555, 232, 12);
+    //232;
+
+    //x/232 =   (maxHealth - playerHealth)/playerHealth;
+    //x = (maxHealth - playerHealth)/playerHealth * 232;
+    whiteBar->SetDestR(24 + 232 - (maxHealth - playerHealth) * 232 / maxHealth, 555,
+                       (maxHealth - playerHealth) * 232 / maxHealth, 12);
+    //std::cerr << whiteBar->destR.y << " " << whiteBar->destR.w << "\n";
+    //std::cerr << (maxHealth - playerHealth) * 232 / playerHealth << "\n";
+    std::cerr << maxHealth << " " << playerHealth << "\n";
+
     if (playerHealth <= 0) {
-        gameState = gameMenu;
-        playerHealth = 50;
         CleanGame();
     }
 
@@ -242,6 +261,9 @@ void Manager::RenderGame() {
 
     for (auto enemy:enemies)
         enemy->word->RenderWord();
+
+    healthBar->Render();
+    whiteBar->Render();
 
     SDL_RenderPresent(renderer);
 }
